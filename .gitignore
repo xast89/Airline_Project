@@ -1,0 +1,3 @@
+#Ignorowanie plikow InteliJ'a
+.idea/
+*.iml
