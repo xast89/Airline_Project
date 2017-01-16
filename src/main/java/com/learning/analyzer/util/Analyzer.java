@@ -5,5 +5,5 @@ package com.learning.analyzer.util;
  */
 public interface Analyzer {
 
-    void analyze();
+    void analyze(Booking booking);
 }
