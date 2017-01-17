@@ -1,6 +1,7 @@
 package com.learning;
 
-import com.learning.analyzer.ageAnalizer.PassangerBirthDayAnalizer;
+import com.learning.analyzer.ageAnalizer.PassangerDepartureDayAnalizer;
+import com.learning.analyzer.ageAnalizer.PassengerBirthDayAnalizer;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 
@@ -12,11 +13,11 @@ public class Main {
     public static void main(String[] args) {
 
         Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
-        PassangerBirthDayAnalizer passangerInformationAnalizer = new PassangerBirthDayAnalizer();
+        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
+        flightDayAnalizer.analyze(oneAdultOneWay);
+        PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
         passangerInformationAnalizer.analyze(oneAdultOneWay);
 
-
-        //System.out.println(oneAdultOneWay);
 
     }
 }

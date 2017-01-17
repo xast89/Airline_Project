@@ -9,14 +9,14 @@ import java.util.List;
 /**
  * Created by Cyprian on 2017-01-16.
  */
-public class PassangerBirthDayAnalizer implements Analyzer {
+public class PassangerDepartureDayAnalizer implements Analyzer {
 
     public void analyze(Booking booking) {
-        String[] passportInfromation = null;
         List<Passenger> passengerList = booking.getPassengerList();
         for (Passenger passenger : passengerList) {
-            PassportAnalizer.getBirthDayFromPassport(passenger);
+            DepartureDayAnalizer.analyzeDepartureDay(passenger);
         }
     }
-
 }
+
+
