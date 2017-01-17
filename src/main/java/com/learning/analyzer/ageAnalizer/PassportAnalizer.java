@@ -9,7 +9,11 @@ import java.util.Calendar;
  */
 public class PassportAnalizer {
 
-    public static Calendar getBirthDayFromPassport(Passenger passenger) {
+    public PassportAnalizer() {
+    }
+
+    public static
+    Calendar getBirthDayFromPassport(Passenger passenger) {
         String[] passportInfromation;
         for (String s : passenger.getPassengerInformation()) {
             if (s.contains("DOC")) {

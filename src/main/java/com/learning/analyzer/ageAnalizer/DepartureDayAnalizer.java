@@ -11,6 +11,8 @@ import java.util.GregorianCalendar;
  */
 public class DepartureDayAnalizer {
 
+    public DepartureDayAnalizer() {
+    }
 
     public static void analyzeDepartureDay(Passenger passenger) {
         for (Segment segment : passenger.getSegmentList()) {

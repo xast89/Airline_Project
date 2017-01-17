@@ -8,6 +8,9 @@ import java.util.GregorianCalendar;
  */
 public class BirthdayStringConverter {
 
+    public BirthdayStringConverter() {
+    }
+
     public static Calendar convertPassengerBirthdayToInt(String s) {
         String[] passportInfromation;
         passportInfromation = s.split("/");

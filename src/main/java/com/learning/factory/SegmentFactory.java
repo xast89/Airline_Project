@@ -13,6 +13,9 @@ import static com.learning.structure.util.FlightStatus.ACTIVE;
  */
 public class SegmentFactory {
 
+    public SegmentFactory() {
+    }
+
     public static Segment oneWay(AirportEnum departureAirport, AirportEnum arrivalAirport) {
         Calendar departureDate = new GregorianCalendar(2017, 3, 29);
         Calendar arrivalDate = new GregorianCalendar(2017, 3, 30);
