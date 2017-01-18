@@ -15,6 +15,10 @@ public class Main {
     public static void main(String[] args) {
 
 // TODO: Poczytac o Singletonie
+
+        // BABLALBALBLALBALBLA
+
+
         //F7 -> wchodzi do metody
         //F8 -> krok naprzod
         //F9 -> puszcza debaga do nastepnego breakpointa
