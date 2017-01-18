@@ -1,5 +1,6 @@
 package com.learning.analyzer.ageAnalizer;
 
+
 import com.learning.factory.PassengerFactory;
 import com.learning.factory.SegmentFactory;
 import com.learning.structure.booking.Passenger;
@@ -18,6 +19,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 
 
 /**
