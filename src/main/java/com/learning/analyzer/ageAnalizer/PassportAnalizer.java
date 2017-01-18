@@ -9,15 +9,27 @@ import java.util.Calendar;
  */
 public class PassportAnalizer {
 
+  private  Passenger passenger;
+  private BirthdayStringConverter birthdayStringConverter = new BirthdayStringConverter();
+
+    public PassportAnalizer(Passenger passenger, BirthdayStringConverter birthdayStringConverter) {
+        this.passenger = passenger;
+        this.birthdayStringConverter = birthdayStringConverter;
+    }
+
+    public PassportAnalizer(Passenger passenger) {
+        this.passenger = passenger;
+    }
+
     public PassportAnalizer() {
     }
 
-    public static
-    Calendar getBirthDayFromPassport(Passenger passenger) {
+
+    public Calendar getBirthDayFromPassport(Passenger passenger) {
         String[] passportInfromation;
         for (String s : passenger.getPassengerInformation()) {
             if (s.contains("DOC")) {
-                return BirthdayStringConverter.convertPassengerBirthdayToInt(s);
+                return birthdayStringConverter.convertPassengerBirthdayToInt(s);
             }
         }
         return null;

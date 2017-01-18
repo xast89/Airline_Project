@@ -11,7 +11,7 @@ public class BirthdayStringConverter {
     public BirthdayStringConverter() {
     }
 
-    public static Calendar convertPassengerBirthdayToInt(String s) {
+    public Calendar convertPassengerBirthdayToInt(String s) {
         String[] passportInfromation;
         passportInfromation = s.split("/");
         String day = passportInfromation[4].substring(0, 2);
