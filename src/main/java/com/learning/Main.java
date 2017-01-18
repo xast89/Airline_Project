@@ -27,7 +27,7 @@ public class Main {
 
         flightDayAnalizer.drugaMetodka();
         flightDayAnalizer.analyze(oneAdultOneWay);
-        
+
         PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
         passangerInformationAnalizer.analyze(oneAdultOneWay);
 
