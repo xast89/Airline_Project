@@ -20,7 +20,7 @@ public class BirthdayStringConverter {
         int day1 = Integer.valueOf(day);
         int month1 = MonthAnalizer.checkpassengerMonthBirthday(month);
         int year1 = Integer.parseInt(year) + 1900;
-        GregorianCalendar passengerGregorianCalendar = new GregorianCalendar(year1, month1, day1);
+        Calendar passengerGregorianCalendar = new GregorianCalendar(year1, month1, day1);
         //System.out.println("Data urodzenia pasażera to: " + passengerGregorianCalendar.get(Calendar.YEAR) + "." + passengerGregorianCalendar.get(Calendar.MONTH) + "." + passengerGregorianCalendar.get(Calendar.DAY_OF_MONTH));
         return passengerGregorianCalendar;
 
