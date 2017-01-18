@@ -37,10 +37,10 @@ public class PassportAnalizerTest {
     @Test
     public void testGetBirthDayFromPassport() {
         //given
-        passenger = PassengerFactory.oneAdultOneWay();
+      //  passenger = PassengerFactory.oneAdultOneWay();
         Calendar gregorianCalendar = new GregorianCalendar(1989, 7, 20);
-        // Mockito.when(passenger.getPassengerInformation()).thenReturn(passengerInformation());
-        Mockito.when(birthdayStringConverter.convertPassengerBirthdayToInt("DOC/PAS/DE/123WXY/20JUN89/XPD/20JAN20")).thenReturn(gregorianCalendar);
+        Mockito.when(passenger.getPassengerInformation()).thenReturn(passengerInformation());
+        Mockito.when(birthdayStringConverter.convertPassengerBirthdayToInt(passenger.getPassengerInformation().get(1))).thenReturn(gregorianCalendar);
         //when
         Calendar result = passportAnalizer.getBirthDayFromPassport(passenger);
         //then
