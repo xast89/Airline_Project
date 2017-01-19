@@ -4,7 +4,6 @@ import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * Created by Cyprian on 2017-01-16.

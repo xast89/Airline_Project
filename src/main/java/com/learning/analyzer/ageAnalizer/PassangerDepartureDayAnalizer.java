@@ -12,10 +12,9 @@ import java.util.List;
 public class PassangerDepartureDayAnalizer implements Analyzer {
 
     public void analyze(Booking booking) {
-        // new SkrzynkaANardzie()
+
         DepartureDayAnalizer departureDayAnalizer = new DepartureDayAnalizer();
-        List<Passenger> passengerList = booking.getPassengerList();
-        for (Passenger passenger : passengerList) {
+        for (Passenger passenger :booking.getPassengerList()) {
             departureDayAnalizer.analyzeDepartureDay(passenger);
         }
     }
