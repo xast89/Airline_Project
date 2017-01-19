@@ -35,7 +35,7 @@ public class BirthdayStringConverterTest {
     @Test
     public void checkIfPassengerInformationIsNull() {
         //given
-        
+
         //when
         Calendar result = birthdayStringConverter.convertPassengerBirthdayToInt("dupa"); //incorrect String
         //then
