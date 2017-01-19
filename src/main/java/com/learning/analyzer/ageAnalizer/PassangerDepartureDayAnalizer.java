@@ -19,11 +19,6 @@ public class PassangerDepartureDayAnalizer implements Analyzer {
             departureDayAnalizer.analyzeDepartureDay(passenger);
         }
     }
-
-    public int drugaMetodka()
-    {
-        return 8;
-    }
 }
 
 

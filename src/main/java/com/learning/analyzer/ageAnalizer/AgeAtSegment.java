@@ -15,14 +15,15 @@ public class AgeAtSegment {
     public AgeAtSegment() {
     }
 
-    public static void checkAgeAtSegments(Passenger passenger, Calendar birthDayFromPassport) {
+    public int checkAgeAtSegments(Passenger passenger, Calendar birthDayFromPassport) {
+        int days=0;
         for (Segment segment : passenger.getSegmentList()) {
             DateTime passengerBirthday = new DateTime(birthDayFromPassport.get(Calendar.YEAR), birthDayFromPassport.get(Calendar.MONTH), birthDayFromPassport.get(Calendar.DAY_OF_MONTH), 0, 0, 0, 0);
             DateTime actualSegmentDate = new DateTime(segment.getDepartureDate().get(Calendar.YEAR), segment.getDepartureDate().get(Calendar.MONTH), segment.getDepartureDate().get(Calendar.DAY_OF_MONTH), 0, 0, 0, 0);
-            int days = Days.daysBetween(passengerBirthday,actualSegmentDate).getDays();
+            days = Days.daysBetween(passengerBirthday,actualSegmentDate).getDays();
             System.out.println("W dni wylotu w segmencie pasazer ma lat: " + days/365);
-
         }
+        return days;
     }
 
 

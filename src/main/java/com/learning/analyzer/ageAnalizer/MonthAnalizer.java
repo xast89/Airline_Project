@@ -5,7 +5,7 @@ package com.learning.analyzer.ageAnalizer;
  */
 public class MonthAnalizer {
 
-    public static int checkpassengerMonthBirthday(String month){
+    public int checkpassengerMonthBirthday(String month){
 
         if(month.equals("JAN"))
             return 1;

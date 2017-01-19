@@ -20,7 +20,6 @@ public class Main {
         Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
         PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
 
-        flightDayAnalizer.drugaMetodka();
         flightDayAnalizer.analyze(oneAdultOneWay);
 
         PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();

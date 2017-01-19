@@ -13,9 +13,12 @@ import java.util.List;
 public class PassengerBirthDayAnalizer implements Analyzer {
 
     private PassportAnalizer passportAnalizer;
+    private AgeAtSegment ageAtSegment;
 
     public PassengerBirthDayAnalizer() {
+
         this.passportAnalizer = new PassportAnalizer();
+        this.ageAtSegment = new AgeAtSegment();
     }
 
     public void analyze(Booking booking) {
@@ -23,7 +26,7 @@ public class PassengerBirthDayAnalizer implements Analyzer {
         for (Passenger passenger : booking.getPassengerList()) {
             Calendar birthDayFromPassport = passportAnalizer.getBirthDayFromPassport(passenger);
             System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(Calendar.YEAR) + "." + birthDayFromPassport.get(Calendar.MONTH) + "." + birthDayFromPassport.get(Calendar.DAY_OF_MONTH));
-            AgeAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
+            ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
 
 
         }
