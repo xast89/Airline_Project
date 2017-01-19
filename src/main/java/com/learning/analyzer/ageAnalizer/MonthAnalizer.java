@@ -5,7 +5,10 @@ package com.learning.analyzer.ageAnalizer;
  */
 public class MonthAnalizer {
 
-    public int checkpassengerMonthBirthday(String month){
+    public int checkpassengerMonthBirthday(String month) throws NullPointerException{
+
+        if(month==null)
+            throw new NullPointerException("Miesiąc nie moze byc pusty");
 
         if(month.equals("JAN"))
             return 1;

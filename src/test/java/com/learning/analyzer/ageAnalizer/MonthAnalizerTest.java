@@ -17,7 +17,7 @@ public class MonthAnalizerTest {
         monthAnalizer = new MonthAnalizer();
     }
     @Test
-    public void checkpassengerMonthBirthday() throws Exception {
+    public void checkpassengerMonthBirthday()  {
 
         //given
 
