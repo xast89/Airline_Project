@@ -19,9 +19,15 @@ public class PassportAnalizer {
     public Calendar getBirthDayFromPassport(Passenger passenger) {
         String[] passportInfromation;
         for (String s : passenger.getPassengerInformation()) {
-            if (s.contains(DOC)) {
-                return birthdayStringConverter.convertPassengerBirthdayToInt(s);
+            if (s == null) {
+                System.out.println("Niepoprawna informacja o pasażerze.");
+                break;
+            } else {
+                if (s.contains(DOC)) {
+                    return birthdayStringConverter.convertPassengerBirthdayToInt(s);
+                }
             }
+
         }
         return null;
     }

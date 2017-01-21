@@ -5,7 +5,6 @@ import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
 
 import java.util.Calendar;
-import java.util.List;
 
 /**
  * Created by Cyprian on 2017-01-17.
@@ -25,9 +24,14 @@ public class PassengerBirthDayAnalizer implements Analyzer {
         String[] passportInfromation = null;
         for (Passenger passenger : booking.getPassengerList()) {
             Calendar birthDayFromPassport = passportAnalizer.getBirthDayFromPassport(passenger);
-            System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(Calendar.YEAR) + "." + birthDayFromPassport.get(Calendar.MONTH) + "." + birthDayFromPassport.get(Calendar.DAY_OF_MONTH));
-            ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
+            if (birthDayFromPassport == null) {
+                System.out.println("Błędna data urodzenia w paszporcie.");
+                break;
+            } else {
+                System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(Calendar.YEAR) + "." + birthDayFromPassport.get(Calendar.MONTH) + "." + birthDayFromPassport.get(Calendar.DAY_OF_MONTH));
+                ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
 
+            }
         }
     }
 

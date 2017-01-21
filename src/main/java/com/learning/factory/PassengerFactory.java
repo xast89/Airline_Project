@@ -28,4 +28,19 @@ public class PassengerFactory {
         return new Passenger(name,surname, PassengerType.ADULT, segments, passengerInformation, ticket);
 
     }
+
+    public static  Passenger twoAdultoneWay(){
+
+        String name = null;
+        String surname = "Kowalski";
+
+        List<Segment> segments = Arrays.asList(SegmentFactory.oneWay(AirportEnum.WAW, AirportEnum.KRK));
+
+        List<String> passengerInformation = Arrays.asList(null, null); //XPD INFORMACJA O KRAJU O ZMIENNEJ DLUGOSCI, DE tak samo.
+
+        Ticket ticket = TicketFactory.createTicket(true);
+
+        return new Passenger(name,surname, PassengerType.ADULT, segments, passengerInformation, ticket);
+
+    }
 }

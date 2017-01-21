@@ -18,4 +18,13 @@ public class BookingFactory {
 
         return new Booking(passengers, "PIXJTS", FlightStatus.ACTIVE);
     }
+
+    public static Booking createTwoAdultOneWay()
+    {
+        List<Passenger> passengers = Arrays.asList(PassengerFactory.twoAdultoneWay());
+
+        return new Booking(passengers, null, FlightStatus.ACTIVE);
+    }
+
+
 }
