@@ -25,42 +25,77 @@ import static com.learning.structure.util.FlightStatus.ACTIVE;
 @RunWith(MockitoJUnitRunner.class)
 public class AgeAtSegmentTest {
 
-    private AgeAtSegment ageAtSegment;
-
-    @Mock
-    private Passenger passenger;
-    @Mock
-    private Calendar birthDayFromPassport;
-    @Mock
-    private Segment segment;
-    @Mock
-    private Calendar segmentCalendar;
-
-
-    @Before
-    public void setUp() {
-        this.ageAtSegment = new AgeAtSegment();
-    }
-
     @Test
-    public void test() {
-        // given
-        Mockito.when(passenger.getSegmentList()).thenReturn(Arrays.asList(segment));
+    public void twojTest()
+    {
 
-        Mockito.when(segment.getDepartureDate()).thenReturn(segmentCalendar);
-        Mockito.when(segmentCalendar.get(Calendar.YEAR)).thenReturn(2014);
-        Mockito.when(segmentCalendar.get(Calendar.MONTH)).thenReturn(11);
-        Mockito.when(segmentCalendar.get(Calendar.DAY_OF_MONTH)).thenReturn(22);
-
-        Mockito.when(birthDayFromPassport.get(Calendar.YEAR)).thenReturn(2010);
-        Mockito.when(birthDayFromPassport.get(Calendar.MONTH)).thenReturn(11);
-        Mockito.when(birthDayFromPassport.get(Calendar.DAY_OF_MONTH)).thenReturn(22);
-
-        //when
-        int result = ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
-
-        //then
-        Assert.assertEquals(1461, result);
     }
 
+    // Moj kod jest daleko 'pozniej' - jakby co to masz sciage :)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    private AgeAtSegment ageAtSegment;
+//
+//    @Mock
+//    private Passenger passenger;
+//    @Mock
+//    private Calendar birthDayFromPassport;
+//    @Mock
+//    private Segment segment;
+//    @Mock
+//    private Calendar segmentCalendar;
+//
+//
+//    @Before
+//    public void setUp() {
+//        this.ageAtSegment = new AgeAtSegment();
+//    }
+//
+//    @Test
+//    public void test() {
+//         given
+//        Mockito.when(passenger.getSegmentList()).thenReturn(Arrays.asList(segment));
+//
+//        Mockito.when(segment.getDepartureDate()).thenReturn(segmentCalendar);
+//        Mockito.when(segmentCalendar.get(Calendar.YEAR)).thenReturn(2014);
+//        Mockito.when(segmentCalendar.get(Calendar.MONTH)).thenReturn(11);
+//        Mockito.when(segmentCalendar.get(Calendar.DAY_OF_MONTH)).thenReturn(22);
+//
+//        Mockito.when(birthDayFromPassport.get(Calendar.YEAR)).thenReturn(2010);
+//        Mockito.when(birthDayFromPassport.get(Calendar.MONTH)).thenReturn(11);
+//        Mockito.when(birthDayFromPassport.get(Calendar.DAY_OF_MONTH)).thenReturn(22);
+//
+//        when
+//        int result = ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
+//
+//        then
+//        Assert.assertEquals(1461, result);
+//    }
+//
 }
