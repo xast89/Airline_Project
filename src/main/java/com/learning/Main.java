@@ -23,7 +23,7 @@ public class Main {
 //        flightDayAnalizer.analyze(oneAdultOneWay);
 
         PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
-        passangerInformationAnalizer.analyze(oneAdultOneWay);
+        passangerInformationAnalizer.analyze(null);
 
 
     }

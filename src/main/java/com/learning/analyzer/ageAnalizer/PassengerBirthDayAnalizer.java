@@ -21,18 +21,22 @@ public class PassengerBirthDayAnalizer implements Analyzer {
     }
 
     public void analyze(Booking booking) {
-        String[] passportInfromation = null;
-        for (Passenger passenger : booking.getPassengerList()) {
-            Calendar birthDayFromPassport = passportAnalizer.getBirthDayFromPassport(passenger);
-            if (birthDayFromPassport == null) {
-                System.out.println("Błędna data urodzenia w paszporcie.");
-                break;
-            } else {
-                System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(Calendar.YEAR) + "." + birthDayFromPassport.get(Calendar.MONTH) + "." + birthDayFromPassport.get(Calendar.DAY_OF_MONTH));
-                ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
+        if(booking!=null) {
 
+            String[] passportInfromation = null;
+            for (Passenger passenger : booking.getPassengerList()) {
+                Calendar birthDayFromPassport = passportAnalizer.getBirthDayFromPassport(passenger);
+                if (birthDayFromPassport == null) {
+                    System.out.println("Błędna data urodzenia w paszporcie.");
+                    break;
+                } else {
+                    System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(Calendar.YEAR) + "." + birthDayFromPassport.get(Calendar.MONTH) + "." + birthDayFromPassport.get(Calendar.DAY_OF_MONTH));
+                    ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
+
+                }
             }
-        }
+        }else
+            System.out.println("Sorry Pawel, booking nie moze byc nullem");
     }
 
 

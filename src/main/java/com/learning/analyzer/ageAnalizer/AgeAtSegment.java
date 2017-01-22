@@ -25,6 +25,7 @@ public class AgeAtSegment {
             System.out.println("W dni wylotu w segmencie pasazer ma lat: " + days/365);
         }
         return days;
+
     }
 
 
