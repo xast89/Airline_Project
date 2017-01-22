@@ -2,87 +2,72 @@ package com.learning.analyzer.ageAnalizer;
 
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
-import com.learning.structure.util.AirportEnum;
-import org.joda.time.DateTime;
-import org.joda.time.Days;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static com.learning.structure.util.FlightStatus.ACTIVE;
 
-@PrepareForTest(Days.class)
+
 /**
  * Created by Cyprian on 2017-01-19.
  */
 @RunWith(MockitoJUnitRunner.class)
 public class AgeAtSegmentTest {
+
     @InjectMocks
     private AgeAtSegment ageAtSegment;
+
     @Mock
     private Passenger passenger;
     @Mock
     private Calendar calendar;
+    @Mock
+    private Segment segment;
+    @Mock
+    private Calendar departureDay;
+
+    @Before
+    public void setUp() {
+        this.ageAtSegment = new AgeAtSegment();
+    }
 
 
     @Test
     public void testCheckAgeAtSegments() {
-        //TODO: POPRAWIC TEST, BO NIE DZIALA
+
         //given
-        DateTime dateTime = new DateTime(2010, 10, 10, 0, 0, 0);
-        DateTime dateTime1 = new DateTime(2010, 10, 17, 0, 0, 0);
-        PowerMockito.mockStatic(Days.class);
-        Mockito.when(Days.daysBetween(dateTime, dateTime1)).thenReturn(Days.days(7));
+        Mockito.when(passenger.getSegmentList()).thenReturn(createSegmentList());
+        // Calendar segmentCalendar = new GregorianCalendar(1989, 1, 15);
+        Mockito.when(segment.getDepartureDate()).thenReturn(departureDay);
+        Mockito.when(segment.getDepartureDate().get(Calendar.YEAR)).thenReturn(1989);
+        Mockito.when(segment.getDepartureDate().get(Calendar.MONTH)).thenReturn(1);
+        Mockito.when(segment.getDepartureDate().get(Calendar.DAY_OF_MONTH)).thenReturn(15);
+        Mockito.when(calendar.get(Calendar.YEAR)).thenReturn(1989);
+        Mockito.when(calendar.get(Calendar.MONTH)).thenReturn(1);
+        Mockito.when(calendar.get(Calendar.DAY_OF_MONTH)).thenReturn(5);
         //when
         int result = ageAtSegment.checkAgeAtSegments(passenger, calendar);
         //then
-        assertEquals(7, result);
-    }
-    public void twojTest()
-    {
+        assertEquals(10, result);
 
     }
+
+
+    private List<Segment> createSegmentList() {
+        return Arrays.asList(segment);
+    }
+
 
     // Moj kod jest daleko 'pozniej' - jakby co to masz sciage :)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //    private AgeAtSegment ageAtSegment;
