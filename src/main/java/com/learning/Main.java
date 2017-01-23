@@ -17,13 +17,15 @@ public class Main {
         //F7 -> wchodzi do metody
         //F8 -> krok naprzod
         //F9 -> puszcza debaga do nastepnego breakpointa
-        Booking oneAdultOneWay = BookingFactory.createTwoAdultOneWay();
+        Booking twoAdultOneWay = BookingFactory.createTwoAdultOneWay();
+        Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
+
 //        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
 //
 //        flightDayAnalizer.analyze(oneAdultOneWay);
 
         PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
-        passangerInformationAnalizer.analyze(null);
+        passangerInformationAnalizer.analyze(oneAdultOneWay);
 
 
     }
