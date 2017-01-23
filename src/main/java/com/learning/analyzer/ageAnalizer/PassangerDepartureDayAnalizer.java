@@ -14,7 +14,7 @@ public class PassangerDepartureDayAnalizer implements Analyzer {
     public void analyze(Booking booking) {
 
         DepartureDayAnalizer departureDayAnalizer = new DepartureDayAnalizer();
-        for (Passenger passenger :booking.getPassengerList()) {
+        for (Passenger passenger : booking.getPassengerList()) {
             departureDayAnalizer.analyzeDepartureDay(passenger);
         }
     }
