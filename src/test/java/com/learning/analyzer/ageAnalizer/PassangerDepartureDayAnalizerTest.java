@@ -14,6 +14,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -30,8 +31,6 @@ public class PassangerDepartureDayAnalizerTest {
     @Mock
     Passenger passenger;
     @Mock
-    List<Passenger> passengerList;
-    @Mock
     DepartureDayAnalizer departureDayAnalizer;
     @Mock
     Segment segment;
@@ -40,8 +39,11 @@ public class PassangerDepartureDayAnalizerTest {
 
     @Before
     public void setUp() {
+
         passangerDepartureDayAnalizer = new PassangerDepartureDayAnalizer();
+
     }
+
 
     // Testy z dupy bo metoda tylko iteruje po 1 elemencie i wyswietla
     @Test
@@ -50,6 +52,7 @@ public class PassangerDepartureDayAnalizerTest {
         //given
         Mockito.when(booking.getPassengerList()).thenReturn(Arrays.asList(passenger));
         Mockito.when(segment.getDepartureDate()).thenReturn(departureDate);
+        Mockito.when(departureDate.get(Calendar.YEAR)).thenReturn(2000);
        //when
         passangerDepartureDayAnalizer.analyze(booking);
         //then
