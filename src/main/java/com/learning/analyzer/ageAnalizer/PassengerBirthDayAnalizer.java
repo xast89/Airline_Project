@@ -11,6 +11,7 @@ import java.util.Calendar;
  */
 public class PassengerBirthDayAnalizer implements Analyzer {
 
+    //TODO: cos pokresla na zielono -> blad w nazwie
     private PassportAnalizer passportAnalizer;
     private AgeAtSegment ageAtSegment;
 
@@ -23,6 +24,7 @@ public class PassengerBirthDayAnalizer implements Analyzer {
     public void analyze(Booking booking) {
         if(booking!=null) {
 
+            //TODO: musisz przypisywac null?
             String[] passportInfromation = null;
             for (Passenger passenger : booking.getPassengerList()) {
                 Calendar birthDayFromPassport = passportAnalizer.getBirthDayFromPassport(passenger);
@@ -36,6 +38,7 @@ public class PassengerBirthDayAnalizer implements Analyzer {
                 }
             }
         }else
+            //TODO: logownie zamiast printowanie na konsole
             System.out.println("Sorry Pawel, booking nie moze byc nullem");
     }
 

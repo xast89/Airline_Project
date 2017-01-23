@@ -4,6 +4,8 @@ import com.learning.structure.util.AirportEnum;
 import com.learning.structure.util.FlightStatus;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.learning.structure.util.FlightStatus.*;
 
@@ -19,6 +21,7 @@ public class Segment {
     private int flightNumber;
     private String equipment;
     private FlightStatus flightStatus;
+    private Map<String, Object> resultMap;
 
     public Segment(AirportEnum departureAirport, AirportEnum arrivalAirport, Calendar departureDate, Calendar arrivalDate, int flightNumber, String equipment, FlightStatus flightStatus) {
         this.departureAirport = departureAirport;
@@ -28,6 +31,7 @@ public class Segment {
         this.flightNumber = flightNumber;
         this.equipment = equipment;
         this.flightStatus = flightStatus;
+        this.resultMap = new HashMap<>();
     }
 
     public boolean isActive() {
@@ -60,5 +64,9 @@ public class Segment {
 
     public FlightStatus getFlightStatus() {
         return flightStatus;
+    }
+
+    public Map<String, Object> getResultMap() {
+        return resultMap;
     }
 }

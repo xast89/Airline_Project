@@ -18,7 +18,9 @@ public class PassportAnalizer {
 
     public Calendar getBirthDayFromPassport(Passenger passenger) {
         String[] passportInfromation;
+        //TODO: A co to jest to 's' ?
         for (String s : passenger.getPassengerInformation()) {
+            // TODO: czy na pewno ta metoda powinna sprawdzac czy lista PassegerInformation jest pusta? Moze to zrobic gdzies wyzej?
             if (s == null) {
                 System.out.println("Niepoprawna informacja o pasażerze.");
                 break;
