@@ -53,7 +53,7 @@ public class PassangerDepartureDayAnalizerTest {
         Mockito.when(booking.getPassengerList()).thenReturn(Arrays.asList(passenger));
         Mockito.when(segment.getDepartureDate()).thenReturn(departureDate);
         Mockito.when(departureDate.get(Calendar.YEAR)).thenReturn(2000);
-       //when
+        //when
         passangerDepartureDayAnalizer.analyze(booking);
         //then
         Assert.assertEquals(segment.getDepartureDate().get(Calendar.YEAR),2000);

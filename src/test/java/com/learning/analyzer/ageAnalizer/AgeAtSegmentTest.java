@@ -2,6 +2,8 @@ package com.learning.analyzer.ageAnalizer;
 
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
+import com.learning.structure.util.FlightStatus;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +14,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -38,6 +39,7 @@ public class AgeAtSegmentTest {
     @Before
     public void setUp() {
         this.ageAtSegment = new AgeAtSegment();
+
     }
 
 
@@ -45,25 +47,22 @@ public class AgeAtSegmentTest {
     public void testCheckAgeAtSegments() {
 
         //given
-        Mockito.when(passenger.getSegmentList()).thenReturn(createSegmentList());
-        // Calendar segmentCalendar = new GregorianCalendar(1989, 1, 15);
+       // Mockito.when(segment.getFlightStatus()).thenReturn(FlightStatus.ACTIVE);
+        Mockito.when(segment.isActive()).thenReturn(true);
+        Mockito.when(passenger.getSegmentList()).thenReturn(Arrays.asList(segment));
         Mockito.when(segment.getDepartureDate()).thenReturn(departureDay);
-        Mockito.when(segment.getDepartureDate().get(Calendar.YEAR)).thenReturn(1989);
-        Mockito.when(segment.getDepartureDate().get(Calendar.MONTH)).thenReturn(1);
-        Mockito.when(segment.getDepartureDate().get(Calendar.DAY_OF_MONTH)).thenReturn(15);
+        Mockito.when(departureDay.get(Calendar.YEAR)).thenReturn(1989);
+        Mockito.when(departureDay.get(Calendar.MONTH)).thenReturn(1);
+        Mockito.when(departureDay.get(Calendar.DAY_OF_MONTH)).thenReturn(15);
         Mockito.when(calendar.get(Calendar.YEAR)).thenReturn(1989);
         Mockito.when(calendar.get(Calendar.MONTH)).thenReturn(1);
         Mockito.when(calendar.get(Calendar.DAY_OF_MONTH)).thenReturn(5);
+
         //when
         int result = ageAtSegment.checkAgeAtSegments(passenger, calendar);
         //then
         assertEquals(10, result);
 
-    }
-
-    private List<Segment> createSegmentList() {
-
-        return Arrays.asList(segment);
     }
 
 
@@ -80,8 +79,8 @@ public class AgeAtSegmentTest {
 //    private Segment segment;
 //    @Mock
 //    private Calendar segmentCalendar;
-//
-//
+
+
 //    @Before
 //    public void setUp() {
 //        this.ageAtSegment = new AgeAtSegment();
@@ -89,7 +88,7 @@ public class AgeAtSegmentTest {
 //
 //    @Test
 //    public void test() {
-//         given
+//         //given
 //        Mockito.when(passenger.getSegmentList()).thenReturn(Arrays.asList(segment));
 //
 //        Mockito.when(segment.getDepartureDate()).thenReturn(segmentCalendar);
@@ -101,10 +100,10 @@ public class AgeAtSegmentTest {
 //        Mockito.when(birthDayFromPassport.get(Calendar.MONTH)).thenReturn(11);
 //        Mockito.when(birthDayFromPassport.get(Calendar.DAY_OF_MONTH)).thenReturn(22);
 //
-//        when
+//      //  when
 //        int result = ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
 //
-//        then
+//        //then
 //        Assert.assertEquals(1461, result);
 //    }
 //
