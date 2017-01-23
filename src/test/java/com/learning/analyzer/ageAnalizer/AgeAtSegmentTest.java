@@ -47,7 +47,7 @@ public class AgeAtSegmentTest {
         //given
         Mockito.when(passenger.getSegmentList()).thenReturn(createSegmentList());
         // Calendar segmentCalendar = new GregorianCalendar(1989, 1, 15);
-      //  Mockito.when(segment.getDepartureDate()).thenReturn(departureDay);
+        Mockito.when(segment.getDepartureDate()).thenReturn(departureDay);
         Mockito.when(segment.getDepartureDate().get(Calendar.YEAR)).thenReturn(1989);
         Mockito.when(segment.getDepartureDate().get(Calendar.MONTH)).thenReturn(1);
         Mockito.when(segment.getDepartureDate().get(Calendar.DAY_OF_MONTH)).thenReturn(15);

@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -47,12 +48,12 @@ public class PassangerDepartureDayAnalizerTest {
     public void analyze() throws Exception {
 
         //given
-        Mockito.when(booking.getPassengerList()).thenReturn(passengerList);
+        Mockito.when(booking.getPassengerList()).thenReturn(Arrays.asList(passenger));
         Mockito.when(segment.getDepartureDate()).thenReturn(departureDate);
-        //when
+       //when
         passangerDepartureDayAnalizer.analyze(booking);
         //then
-        Assert.assertNotNull(passengerList);
+        Assert.assertEquals(segment.getDepartureDate().get(Calendar.YEAR),2000);
 
 
 
