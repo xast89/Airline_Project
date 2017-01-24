@@ -3,13 +3,20 @@ package com.learning.analyzer.ageAnalizer;
 /**
  * Created by Cyprian on 2017-01-17.
  */
+//TODO: a czemu to nazwales analizer? Dla potrzeb projektu umowmy sie, ze tylko klaski implementujace Interface
+    //TODO: Analyzer moga sie nazywac Analyzer
 public class MonthAnalizer {
 
+    //TODO: Camel style
     public int checkpassengerMonthBirthday(String month) throws NullPointerException{
 
+        //TODO: nie jestem pewny, czy tutaj powinienes sprawdzac czy jest null. Moze wczesniej?
+        //TODO: I ogolnie rzucanie 'NullPointerException' to nie jest najlepszy pomysl
         if(month==null)
             throw new NullPointerException("Miesiąc nie moze byc pusty");
 
+        //TODO: private static final String JAN = "JAN";
+        //TODO: Moze switch? Albo przynajmniej ifelse ?
         if(month.equals("JAN"))
             return 1;
         if(month.equals("FEB"))
@@ -35,6 +42,7 @@ public class MonthAnalizer {
         if(month.equals("DEC"))
             return 12;
 
+        //TODO: Nie rozumiem. Jak ktos w miejsce miesiaca wpisze "HUJ" to Twoja metodka zwroci 0 i co dalej?
         return 0;
     }
 }
