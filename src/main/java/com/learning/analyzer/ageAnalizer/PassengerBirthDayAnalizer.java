@@ -24,8 +24,6 @@ public class PassengerBirthDayAnalizer implements Analyzer {
     public void analyze(Booking booking) {
         if(booking!=null) {
 
-            //TODO: musisz przypisywac null?
-            String[] passportInfromation = null;
             for (Passenger passenger : booking.getPassengerList()) {
                 Calendar birthDayFromPassport = passportAnalizer.getBirthDayFromPassport(passenger);
                 if (birthDayFromPassport == null) {

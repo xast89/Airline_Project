@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 import static org.mockito.Matchers.any;
+import static org.joda.time.Days.daysBetween;
 
 /**
  * Created by Cyprian on 2017-01-19.
@@ -48,6 +49,8 @@ public class AgeAtSegmentTest_Static {
     @Test
     public void test() {
 //         given
+
+        Mockito.when(segment.isActive()).thenReturn(true);
         Mockito.when(passenger.getSegmentList()).thenReturn(Arrays.asList(segment));
 
         Mockito.when(segment.getDepartureDate()).thenReturn(segmentCalendar);
@@ -61,7 +64,7 @@ public class AgeAtSegmentTest_Static {
 
 
         PowerMockito.mockStatic(Days.class);
-        PowerMockito.when(Days.daysBetween(any(DateTime.class), any(DateTime.class))).thenReturn(days);
+        PowerMockito.when(daysBetween(any(DateTime.class), any(DateTime.class))).thenReturn(days);
         PowerMockito.when(days.getDays()).thenReturn(500);
 //        when
         int result = ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);

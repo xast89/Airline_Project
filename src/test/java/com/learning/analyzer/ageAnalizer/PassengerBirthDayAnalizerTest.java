@@ -1,3 +1,5 @@
+package com.learning.analyzer.ageAnalizer;
+
 import static org.junit.Assert.*;
 
 /**

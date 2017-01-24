@@ -10,11 +10,11 @@ import static org.junit.Assert.assertEquals;
  */
 public class MonthAnalizerTest {
 
-    private MonthAnalizer monthAnalizer;
+    private Month monthAnalizer;
 
     @Before
     public void setUp() {
-        monthAnalizer = new MonthAnalizer();
+        monthAnalizer = new Month();
     }
     @Test
     public void checkpassengerMonthBirthday()  {
@@ -22,7 +22,7 @@ public class MonthAnalizerTest {
         //given
 
         //when
-        int result = monthAnalizer.checkpassengerMonthBirthday("JUN");
+        int result = monthAnalizer.checkPassengerMonthBirthday("JUN");
         //then
         assertEquals(7, result);
     }
