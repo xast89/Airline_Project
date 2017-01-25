@@ -67,7 +67,7 @@ public class AgeAtSegmentTest_Static {
         PowerMockito.when(daysBetween(any(DateTime.class), any(DateTime.class))).thenReturn(days);
         PowerMockito.when(days.getDays()).thenReturn(500);
 //        when
-        int result = ageAtSegment.countDays(passenger, birthDayFromPassport);
+        int result = ageAtSegment.countDays(segment, birthDayFromPassport);
 
 //        then
         Assert.assertEquals(500, result);

@@ -3,6 +3,7 @@ package com.learning.analyzer.ageAnalizer;
 import com.learning.analyzer.util.Analyzer;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
+import com.learning.structure.booking.Segment;
 
 import java.util.Calendar;
 
@@ -30,8 +31,10 @@ public class PassengerBirthDayAnalizer implements Analyzer {
                     System.out.println("Błędna data urodzenia w paszporcie.");
                     break;
                 } else {
+                    ActiveSegment activeSegment = new ActiveSegment();
+                    Segment segment = activeSegment.findActiveSegment(passenger);
                     System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(Calendar.YEAR) + "." + birthDayFromPassport.get(Calendar.MONTH) + "." + birthDayFromPassport.get(Calendar.DAY_OF_MONTH));
-                    ageAtSegment.countDays(passenger, birthDayFromPassport);
+                    ageAtSegment.countDays(segment, birthDayFromPassport);
 
                 }
             }

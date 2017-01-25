@@ -59,7 +59,7 @@ public class AgeAtSegmentTest {
         Mockito.when(calendar.get(Calendar.DAY_OF_MONTH)).thenReturn(5);
 
         //when
-        int result = ageAtSegment.countDays(passenger, calendar);
+        int result = ageAtSegment.countDays(segment, calendar);
         //then
         assertEquals(10, result);
 
