@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Cyprian on 2017-01-19.
  */
-public class MonthAnalizerTest {
+public class MonthTest {
 
     private Month monthAnalizer;
 
@@ -22,8 +22,8 @@ public class MonthAnalizerTest {
         //given
 
         //when
-        int result = monthAnalizer.checkPassengerMonthBirthday("JUN");
+        int result = monthAnalizer.checkPassengerMonthBirthday("DEC");
         //then
-        assertEquals(7, result);
+        assertEquals(12, result);
     }
 }

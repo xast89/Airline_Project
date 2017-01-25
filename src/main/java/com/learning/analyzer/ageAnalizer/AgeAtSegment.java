@@ -14,7 +14,7 @@ import static org.joda.time.Days.daysBetween;
 public class AgeAtSegment {
 
 
-    public int checkAgeAtSegments(Passenger passenger, Calendar birthDayFromPassport) {
+    public int countDays(Passenger passenger, Calendar birthDayFromPassport) {
         int days;
         //TODO: a moze wartosc sie zastanowić, by ta metodka dostawala pierwszy aktywny segment Pasazera i wyliczala
         //TODO: tylko jego wiek ? W sensie reszte logiki wyrzucic poza ta matode (moze zrobic osobna?)

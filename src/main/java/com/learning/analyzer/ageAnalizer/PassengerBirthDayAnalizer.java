@@ -31,7 +31,7 @@ public class PassengerBirthDayAnalizer implements Analyzer {
                     break;
                 } else {
                     System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(Calendar.YEAR) + "." + birthDayFromPassport.get(Calendar.MONTH) + "." + birthDayFromPassport.get(Calendar.DAY_OF_MONTH));
-                    ageAtSegment.checkAgeAtSegments(passenger, birthDayFromPassport);
+                    ageAtSegment.countDays(passenger, birthDayFromPassport);
 
                 }
             }
