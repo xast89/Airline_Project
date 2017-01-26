@@ -18,7 +18,7 @@ public class DateSpliter {
     public String getYear() {
         return year;
     }
-    
+
     public String splitPassengerinformation(String passengerBirthdayFromPassport) {
         if (countSpecifiedChars(passengerBirthdayFromPassport)) {
             String[] passportInformation;

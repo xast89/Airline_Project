@@ -21,7 +21,7 @@ public class PassengerFactory {
 
         List<Segment> segments = Arrays.asList(SegmentFactory.oneWay(AirportEnum.BER, AirportEnum.KRK));
 
-        List<String> passengerInformation = Arrays.asList("ADD/IXIS2/8989", "DOC/PAS/DE/123WXY/12JAN89/XPD/20JAN20"); //XPD INFORMACJA O KRAJU O ZMIENNEJ DLUGOSCI, DE tak samo.
+        List<String> passengerInformation = Arrays.asList("ADD/IXIS2/8989", "DOC/PAS/DE/123WXY/12cyc89/XPD/20JAN20"); //XPD INFORMACJA O KRAJU O ZMIENNEJ DLUGOSCI, DE tak samo.
 
         Ticket ticket = TicketFactory.createTicket(true);
 

@@ -32,9 +32,10 @@ public class BirthdayStringConverter {
             if(intValueOfMonth==0)
             {
                 System.out.println("Bledny format daty w paszporcie.");
+                return null;
             }
-            Calendar passengerGregorianCalendar = new GregorianCalendar(checkIfYearIsLeap(dateSpliter.getYear()), intValueOfMonth, intValueOfDay);
-            return passengerGregorianCalendar;
+                Calendar passengerGregorianCalendar = new GregorianCalendar(checkIfYearIsLeap(dateSpliter.getYear()), intValueOfMonth, intValueOfDay);
+                return passengerGregorianCalendar;
     }
 
 
