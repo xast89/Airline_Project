@@ -1,5 +1,8 @@
 package com.learning.analyzer.ageAnalizer;
 
+import com.learning.analyzer.ageAnalizer.Month.DateSpliter;
+import com.learning.analyzer.ageAnalizer.Month.Month;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -12,50 +15,38 @@ public class BirthdayStringConverter {
 
 
     public static final String REGEX = "/";
+    private int actualYear;
 
     public BirthdayStringConverter() {
+        actualYear=(getInstance().get(YEAR))-2000;
     }
 
     public Calendar convertPassengerBirthdayToInt(String passengerBirthdayFromPassport) {
 
-        if(countSpecifiedChars(passengerBirthdayFromPassport)) {
-            String[] passportInformation;
-            int actualYear = (getInstance().get(YEAR))-2000;
-            Month monthAnalizer = new Month();
-            passportInformation = passengerBirthdayFromPassport.split(REGEX);
-            String day = passportInformation[4].substring(0, 2);
-            String month = passportInformation[4].substring(2, 5);
-            String year = passportInformation[4].substring(5, 7);
-// TODO: test jak month zly
-            int intValueOfDay = Integer.valueOf(day);
-            int intValueOfYear;
-            int intValueOfMonth = monthAnalizer.checkPassengerMonthBirthday(month);
-            if(0<=Integer.parseInt(year) && Integer.parseInt(year)<=actualYear){
-                intValueOfYear = Integer.parseInt(year)+2000;
-            }else
+        Month monthOfPassengerBirthday = new Month();
+        DateSpliter dateSpliter = new DateSpliter();
+        dateSpliter.splitPassengerinformation(passengerBirthdayFromPassport);
+
+        int intValueOfDay = Integer.valueOf(dateSpliter.getDay());
+        int intValueOfMonth = monthOfPassengerBirthday.checkPassengerMonthBirthday(dateSpliter.getMonth());
+            if(intValueOfMonth==0)
             {
-                intValueOfYear = Integer.parseInt(year)+1900;
+                System.out.println("Bledny format daty w paszporcie.");
             }
-            Calendar passengerGregorianCalendar = new GregorianCalendar(intValueOfYear, intValueOfMonth, intValueOfDay);
+            Calendar passengerGregorianCalendar = new GregorianCalendar(checkIfYearIsLeap(dateSpliter.getYear()), intValueOfMonth, intValueOfDay);
             return passengerGregorianCalendar;
-        }else
-            //TODO: nie zwracamy null
-            return null;
-
     }
 
 
-    private boolean countSpecifiedChars(String passportBirthdayInformation){
-        int length = passportBirthdayInformation.length();
-        int breaksCounter=0;
-        for(int i=0 ;i< length;i++){
-            char c = passportBirthdayInformation.charAt(i);
-            if(c=='/'){
-                breaksCounter++;
-            }
+    private int checkIfYearIsLeap(String year){
+        if(0<=Integer.parseInt(year) && Integer.parseInt(year)<=actualYear){
+            int intValueOfYear = Integer.parseInt(year)+2000;
+            return intValueOfYear;
         }
-        if(breaksCounter<6)
-            return false;
-        return true;
+        int intValueOfYear = Integer.parseInt(year)+1900;;
+        return intValueOfYear;
     }
+
+
+
 }

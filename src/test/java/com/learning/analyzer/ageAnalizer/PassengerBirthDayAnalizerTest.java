@@ -1,5 +1,7 @@
 package com.learning.analyzer.ageAnalizer;
 
+import com.learning.analyzer.ageAnalizer.Date.PassengerBirthDayAnalizer;
+import com.learning.analyzer.ageAnalizer.Date.PassportAnalizer;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
 import org.junit.Assert;

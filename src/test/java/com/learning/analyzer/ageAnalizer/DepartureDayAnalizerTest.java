@@ -1,5 +1,6 @@
 package com.learning.analyzer.ageAnalizer;
 
+import com.learning.analyzer.ageAnalizer.Date.DepartureDayAnalizer;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
 import com.learning.structure.util.AirportEnum;

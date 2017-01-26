@@ -1,4 +1,4 @@
-package com.learning.analyzer.ageAnalizer;
+package com.learning.analyzer.ageAnalizer.Segment;
 
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;

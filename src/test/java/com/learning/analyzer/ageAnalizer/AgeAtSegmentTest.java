@@ -1,9 +1,8 @@
 package com.learning.analyzer.ageAnalizer;
 
+import com.learning.analyzer.ageAnalizer.Segment.AgeAtSegment;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
-import com.learning.structure.util.FlightStatus;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

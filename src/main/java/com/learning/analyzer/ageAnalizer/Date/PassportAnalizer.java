@@ -1,5 +1,6 @@
-package com.learning.analyzer.ageAnalizer;
+package com.learning.analyzer.ageAnalizer.Date;
 
+import com.learning.analyzer.ageAnalizer.BirthdayStringConverter;
 import com.learning.structure.booking.Passenger;
 
 import java.util.Calendar;

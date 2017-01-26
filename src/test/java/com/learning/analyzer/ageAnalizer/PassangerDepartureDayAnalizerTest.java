@@ -1,5 +1,7 @@
 package com.learning.analyzer.ageAnalizer;
 
+import com.learning.analyzer.ageAnalizer.Date.DepartureDayAnalizer;
+import com.learning.analyzer.ageAnalizer.Date.PassangerDepartureDayAnalizer;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
@@ -14,8 +16,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
 /**

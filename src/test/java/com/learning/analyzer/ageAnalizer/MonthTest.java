@@ -1,5 +1,6 @@
 package com.learning.analyzer.ageAnalizer;
 
+import com.learning.analyzer.ageAnalizer.Month.Month;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,7 +29,7 @@ public class MonthTest {
     }
 
     @Test
-    public void checkWrongPassangerMontBirthday(){
+    public void checkIfWrongPassangerMontBirthday(){
 
 
         //given

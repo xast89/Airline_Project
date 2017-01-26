@@ -1,7 +1,6 @@
 package com.learning;
 
-import com.learning.analyzer.ageAnalizer.PassangerDepartureDayAnalizer;
-import com.learning.analyzer.ageAnalizer.PassengerBirthDayAnalizer;
+import com.learning.analyzer.ageAnalizer.Date.PassengerBirthDayAnalizer;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 

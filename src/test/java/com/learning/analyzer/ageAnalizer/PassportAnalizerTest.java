@@ -1,12 +1,11 @@
 package com.learning.analyzer.ageAnalizer;
 
 
-import com.learning.factory.PassengerFactory;
+import com.learning.analyzer.ageAnalizer.Date.PassportAnalizer;
 import com.learning.factory.SegmentFactory;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
 import com.learning.structure.util.AirportEnum;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

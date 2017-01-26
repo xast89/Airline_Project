@@ -1,9 +1,10 @@
-package com.learning.analyzer.ageAnalizer;
+package com.learning.analyzer.ageAnalizer.Date;
 
+import com.learning.analyzer.ageAnalizer.Segment.ActiveSegment;
+import com.learning.analyzer.ageAnalizer.Segment.AgeAtSegment;
 import com.learning.analyzer.util.Analyzer;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
-import com.learning.structure.booking.Segment;
 
 import java.util.Calendar;
 

@@ -1,5 +1,6 @@
 package com.learning.analyzer.ageAnalizer;
 
+import com.learning.analyzer.ageAnalizer.Segment.AgeAtSegment;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
 import org.joda.time.DateTime;
