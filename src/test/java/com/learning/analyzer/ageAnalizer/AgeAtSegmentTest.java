@@ -15,6 +15,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import java.util.Arrays;
 import java.util.Calendar;
 
+import static java.util.Calendar.*;
 import static org.junit.Assert.assertEquals;
 
 
@@ -51,12 +52,12 @@ public class AgeAtSegmentTest {
         Mockito.when(passenger.getSegmentList()).thenReturn(Arrays.asList(segment));
         Mockito.when(segment.isActive()).thenReturn(true);
         Mockito.when(segment.getDepartureDate()).thenReturn(departureDay);
-        Mockito.when(departureDay.get(Calendar.YEAR)).thenReturn(1989);
-        Mockito.when(departureDay.get(Calendar.MONTH)).thenReturn(1);
-        Mockito.when(departureDay.get(Calendar.DAY_OF_MONTH)).thenReturn(15);
-        Mockito.when(calendar.get(Calendar.YEAR)).thenReturn(1989);
-        Mockito.when(calendar.get(Calendar.MONTH)).thenReturn(1);
-        Mockito.when(calendar.get(Calendar.DAY_OF_MONTH)).thenReturn(5);
+        Mockito.when(departureDay.get(YEAR)).thenReturn(1989);
+        Mockito.when(departureDay.get(MONTH)).thenReturn(1);
+        Mockito.when(departureDay.get(DAY_OF_MONTH)).thenReturn(15);
+        Mockito.when(calendar.get(YEAR)).thenReturn(1989);
+        Mockito.when(calendar.get(MONTH)).thenReturn(1);
+        Mockito.when(calendar.get(DAY_OF_MONTH)).thenReturn(5);
 
         //when
         int result = ageAtSegment.countDays(segment, calendar);

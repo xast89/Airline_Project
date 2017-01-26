@@ -6,15 +6,9 @@ package com.learning.analyzer.ageAnalizer;
 
 public class Month {
 
-    public int checkPassengerMonthBirthday(String month) throws NullPointerException {
+    public int checkPassengerMonthBirthday(String month) {
 
-        //TODO: nie jestem pewny, czy tutaj powinienes sprawdzac czy jest null. Moze wczesniej?
-
-        if (month == null)
-            System.out.println("Miesiąc nie moze byc pusty");
-
-        //TODO: private static final String JAN = "JAN";
-
+//TODO: miesiace do enuma
         if (month.equals("JAN"))
             return 1;
         else if (month.equals("FEB"))
@@ -41,8 +35,9 @@ public class Month {
             return 12;
         else {
             System.out.println("Błędna nazwa miesiąca.");
+            return 0;
         }
         //TODO: Nie rozumiem. Jak ktos w miejsce miesiaca wpisze "HUJ" to Twoja metodka zwroci 0 i co dalej?
-        return 0;
+
     }
 }

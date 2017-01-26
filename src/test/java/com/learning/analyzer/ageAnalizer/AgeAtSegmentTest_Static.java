@@ -17,6 +17,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import java.util.Arrays;
 import java.util.Calendar;
 
+import static java.util.Calendar.*;
 import static org.mockito.Matchers.any;
 import static org.joda.time.Days.daysBetween;
 
@@ -54,13 +55,13 @@ public class AgeAtSegmentTest_Static {
         Mockito.when(passenger.getSegmentList()).thenReturn(Arrays.asList(segment));
 
         Mockito.when(segment.getDepartureDate()).thenReturn(segmentCalendar);
-        Mockito.when(segmentCalendar.get(Calendar.YEAR)).thenReturn(2014);
-        Mockito.when(segmentCalendar.get(Calendar.MONTH)).thenReturn(11);
-        Mockito.when(segmentCalendar.get(Calendar.DAY_OF_MONTH)).thenReturn(22);
+        Mockito.when(segmentCalendar.get(YEAR)).thenReturn(2014);
+        Mockito.when(segmentCalendar.get(MONTH)).thenReturn(11);
+        Mockito.when(segmentCalendar.get(DAY_OF_MONTH)).thenReturn(22);
 
-        Mockito.when(birthDayFromPassport.get(Calendar.YEAR)).thenReturn(2010);
-        Mockito.when(birthDayFromPassport.get(Calendar.MONTH)).thenReturn(11);
-        Mockito.when(birthDayFromPassport.get(Calendar.DAY_OF_MONTH)).thenReturn(22);
+        Mockito.when(birthDayFromPassport.get(YEAR)).thenReturn(2010);
+        Mockito.when(birthDayFromPassport.get(MONTH)).thenReturn(11);
+        Mockito.when(birthDayFromPassport.get(DAY_OF_MONTH)).thenReturn(22);
 
 
         PowerMockito.mockStatic(Days.class);

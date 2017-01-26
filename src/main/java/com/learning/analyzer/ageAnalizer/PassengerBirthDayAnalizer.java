@@ -7,6 +7,8 @@ import com.learning.structure.booking.Segment;
 
 import java.util.Calendar;
 
+import static java.util.Calendar.*;
+
 /**
  * Created by Cyprian on 2017-01-17.
  */
@@ -15,11 +17,13 @@ public class PassengerBirthDayAnalizer implements Analyzer {
     //TODO: cos pokresla na zielono -> blad w nazwie
     private PassportAnalizer passportAnalizer;
     private AgeAtSegment ageAtSegment;
+    private ActiveSegment activeSegment;
 
     public PassengerBirthDayAnalizer() {
 
         this.passportAnalizer = new PassportAnalizer();
         this.ageAtSegment = new AgeAtSegment();
+        this.activeSegment = new ActiveSegment();
     }
 
     public void analyze(Booking booking) {
@@ -31,11 +35,8 @@ public class PassengerBirthDayAnalizer implements Analyzer {
                     System.out.println("Błędna data urodzenia w paszporcie.");
                     break;
                 } else {
-                    ActiveSegment activeSegment = new ActiveSegment();
-                    Segment segment = activeSegment.findActiveSegment(passenger);
-                    System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(Calendar.YEAR) + "." + birthDayFromPassport.get(Calendar.MONTH) + "." + birthDayFromPassport.get(Calendar.DAY_OF_MONTH));
-                    ageAtSegment.countDays(segment, birthDayFromPassport);
-
+                    System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(YEAR) + "." + birthDayFromPassport.get(MONTH) + "." + birthDayFromPassport.get(DAY_OF_MONTH));
+                    ageAtSegment.countDays(activeSegment.findActiveSegment(passenger), birthDayFromPassport);
                 }
             }
         }else

@@ -17,7 +17,7 @@ public class MonthTest {
         monthAnalizer = new Month();
     }
     @Test
-    public void checkpassengerMonthBirthday()  {
+    public void checkCorrectPassengerMonthBirthday()  {
 
         //given
 
@@ -25,5 +25,17 @@ public class MonthTest {
         int result = monthAnalizer.checkPassengerMonthBirthday("DEC");
         //then
         assertEquals(12, result);
+    }
+
+    @Test
+    public void checkWrongPassangerMontBirthday(){
+
+
+        //given
+
+        //when
+        int result = monthAnalizer.checkPassengerMonthBirthday("Cyc");
+        //then
+        assertEquals(0,result);
     }
 }

@@ -11,6 +11,8 @@ import static java.util.Calendar.*;
 public class BirthdayStringConverter {
 
 
+    public static final String REGEX = "/";
+
     public BirthdayStringConverter() {
     }
 
@@ -20,12 +22,11 @@ public class BirthdayStringConverter {
             String[] passportInformation;
             int actualYear = (getInstance().get(YEAR))-2000;
             Month monthAnalizer = new Month();
-            //TODO: takie Stringi raczej wyrzucamy jako pole. Np: private static final String REGEX = "/";
-            passportInformation = passengerBirthdayFromPassport.split("/");
+            passportInformation = passengerBirthdayFromPassport.split(REGEX);
             String day = passportInformation[4].substring(0, 2);
             String month = passportInformation[4].substring(2, 5);
             String year = passportInformation[4].substring(5, 7);
-
+// TODO: test jak month zly
             int intValueOfDay = Integer.valueOf(day);
             int intValueOfYear;
             int intValueOfMonth = monthAnalizer.checkPassengerMonthBirthday(month);
