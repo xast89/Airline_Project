@@ -18,13 +18,18 @@ public class Main {
         //F9 -> puszcza debaga do nastepnego breakpointa
         Booking twoAdultOneWay = BookingFactory.createTwoAdultOneWay();
         Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
+        Booking threeAdultOneWay = BookingFactory.createThreeAdultOneWay();
 
 //        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
 //
 //        flightDayAnalizer.analyze(oneAdultOneWay);
 
         PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
-        passangerInformationAnalizer.analyze(oneAdultOneWay);
+        passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
+        System.out.println();
+        passangerInformationAnalizer.analyze(twoAdultOneWay);   //  booking z nullowymi danymi
+        System.out.println();
+        passangerInformationAnalizer.analyze(threeAdultOneWay);  // booking z niepoprawnym formatem daty ruodzenia
 
 
     }

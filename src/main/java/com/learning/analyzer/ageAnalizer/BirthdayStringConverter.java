@@ -6,6 +6,7 @@ import com.learning.analyzer.ageAnalizer.Month.Month;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import static java.lang.Integer.*;
 import static java.util.Calendar.*;
 
 /**
@@ -27,7 +28,7 @@ public class BirthdayStringConverter {
         DateSpliter dateSpliter = new DateSpliter();
         dateSpliter.splitPassengerinformation(passengerBirthdayFromPassport);
 
-        int intValueOfDay = Integer.valueOf(dateSpliter.getDay());
+        int intValueOfDay = valueOf(dateSpliter.getDay());
         int intValueOfMonth = monthOfPassengerBirthday.checkPassengerMonthBirthday(dateSpliter.getMonth());
             if(intValueOfMonth==0)
             {
@@ -40,11 +41,11 @@ public class BirthdayStringConverter {
 
 
     private int checkIfYearIsLeap(String year){
-        if(0<=Integer.parseInt(year) && Integer.parseInt(year)<=actualYear){
-            int intValueOfYear = Integer.parseInt(year)+2000;
+        if(0<= parseInt(year) && parseInt(year)<=actualYear){
+            int intValueOfYear = parseInt(year)+2000;
             return intValueOfYear;
         }
-        int intValueOfYear = Integer.parseInt(year)+1900;;
+        int intValueOfYear = parseInt(year)+1900;;
         return intValueOfYear;
     }
 
