@@ -26,10 +26,10 @@ public class Main {
 
         PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
         passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
+//        System.out.println();
+//        passangerInformationAnalizer.analyze(twoAdultOneWay);   //  booking z nullowymi danymi
         System.out.println();
-        passangerInformationAnalizer.analyze(twoAdultOneWay);   //  booking z nullowymi danymi
-        System.out.println();
-        passangerInformationAnalizer.analyze(threeAdultOneWay);  // booking z niepoprawnym formatem daty ruodzenia
+//        passangerInformationAnalizer.analyze(threeAdultOneWay);  // booking z niepoprawnym formatem daty ruodzenia
 
 
     }

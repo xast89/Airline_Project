@@ -1,11 +1,13 @@
 package com.learning.analyzer.ageAnalizer;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
@@ -39,7 +41,7 @@ public class BirthdayStringConverterTest {
         //when
         Calendar result = birthdayStringConverter.convertPassengerBirthdayToInt("dupa"); //incorrect String
         //then
-        assertEquals(null,result);
+        assertNull(result);
 
     }
 

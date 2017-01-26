@@ -28,15 +28,25 @@ public class BirthdayStringConverter {
         DateSpliter dateSpliter = new DateSpliter();
         dateSpliter.splitPassengerinformation(passengerBirthdayFromPassport);
 
+        if(isNotGoodSplitted(dateSpliter))
+        {
+            return null;
+        }
+
+
         int intValueOfDay = valueOf(dateSpliter.getDay());
         int intValueOfMonth = monthOfPassengerBirthday.checkPassengerMonthBirthday(dateSpliter.getMonth());
             if(intValueOfMonth==0)
             {
                 System.out.println("Bledny format daty w paszporcie.");
-                return null;
+
             }
                 Calendar passengerGregorianCalendar = new GregorianCalendar(checkIfYearIsLeap(dateSpliter.getYear()), intValueOfMonth, intValueOfDay);
                 return passengerGregorianCalendar;
+    }
+
+    private boolean isNotGoodSplitted(DateSpliter dateSpliter) {
+        return dateSpliter.getDay() == null || dateSpliter.getMonth() == null || dateSpliter.getYear() == null;
     }
 
 

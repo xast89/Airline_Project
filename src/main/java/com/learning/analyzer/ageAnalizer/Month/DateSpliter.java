@@ -27,6 +27,7 @@ public class DateSpliter {
             this.month = passportInformation[4].substring(2, 5);
             this.year = passportInformation[4].substring(5, 7);
         }
+
     }
 
     private boolean countSpecifiedChars(String passportBirthdayInformation) {
