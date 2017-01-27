@@ -7,7 +7,6 @@ import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
 
 import java.util.Calendar;
-import java.util.Map;
 
 import static java.util.Calendar.*;
 
@@ -16,7 +15,6 @@ import static java.util.Calendar.*;
  */
 public class PassengerBirthDayAnalizer implements Analyzer {
 
-    //TODO: cos pokresla na zielono -> blad w nazwie
     private PassportAnalizer passportAnalizer;
     private AgeAtSegment ageAtSegment;
     private ActiveSegment activeSegment;
@@ -29,14 +27,7 @@ public class PassengerBirthDayAnalizer implements Analyzer {
     }
 
     public void analyze(Booking booking) {
-//
-//        if(checkIfBookingIsOk(booking))
-//        {
-//            // wykonuje caly kod
-//        }else
-//        {
-//            // wywala sie z bledem jakims
-//        }
+
         if (booking != null) {
 
             for (Passenger passenger : booking.getPassengerList()) {
@@ -46,13 +37,11 @@ public class PassengerBirthDayAnalizer implements Analyzer {
                     break;
                 } else {
                     System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(YEAR) + "." + birthDayFromPassport.get(MONTH) + "." + birthDayFromPassport.get(DAY_OF_MONTH));
-                    int passengerASDFSADF = ageAtSegment.countDays(activeSegment.findActiveSegment(passenger), birthDayFromPassport);
+                    int daysBetweenPassengerBirthdayAndActiveSegment = ageAtSegment.countDays(activeSegment.findActiveSegment(passenger), birthDayFromPassport);
 
-                    int wiekWLatach = passengerASDFSADF / 365;
+                    int passenferAgeAsYears = daysBetweenPassengerBirthdayAndActiveSegment / 365;
 
-                    passenger.getResultMap().put("Anal_1", wiekWLatach);
-
-
+                    passenger.getResultMap().put("Anal_1", passenferAgeAsYears);
                 }
             }
         } else
@@ -62,8 +51,7 @@ public class PassengerBirthDayAnalizer implements Analyzer {
 
     private boolean checkIfBookingIsOk(Booking booking) {
 
-        if(booking == null || booking.getPassengerList() ==null)
-        {
+        if (booking == null || booking.getPassengerList() == null) {
             return false;
         }
 

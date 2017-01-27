@@ -52,4 +52,18 @@ public class PassengerBirthDayAnalizerTest {
     }
 
 
+    @Test
+    public void checkIfBirthdayFromPassportIsNull(){
+
+        //given
+        Mockito.when(passportAnalizer.getBirthDayFromPassport(passenger)).thenReturn(null);
+        //when
+        passengerBirthDayAnalizer.analyze(booking);
+        //then
+        Assert.assertEquals(0,calendar.get(Calendar.MONTH));
+
+
+    }
+
+
 }
