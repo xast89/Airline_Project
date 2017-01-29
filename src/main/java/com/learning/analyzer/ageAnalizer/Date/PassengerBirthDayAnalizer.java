@@ -39,9 +39,9 @@ public class PassengerBirthDayAnalizer implements Analyzer {
                     System.out.println("Data urodzenia pasażera to: " + birthDayFromPassport.get(YEAR) + "." + birthDayFromPassport.get(MONTH) + "." + birthDayFromPassport.get(DAY_OF_MONTH));
                     int daysBetweenPassengerBirthdayAndActiveSegment = ageAtSegment.countDays(activeSegment.findActiveSegment(passenger), birthDayFromPassport);
 
-                    int passenferAgeAsYears = daysBetweenPassengerBirthdayAndActiveSegment / 365;
+                    int passengerAgeAsYears = daysBetweenPassengerBirthdayAndActiveSegment / 365;
 
-                    passenger.getResultMap().put("Anal_1", passenferAgeAsYears);
+                    passenger.getResultMap().put("Anal_1", passengerAgeAsYears);
                 }
             }
         } else

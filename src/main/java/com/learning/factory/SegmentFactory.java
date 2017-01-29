@@ -22,4 +22,11 @@ public class SegmentFactory {
 
         return new Segment(departureAirport, arrivalAirport, departureDate, arrivalDate, 651, "AB777", ACTIVE);
     }
+
+    public static Segment oneWay2(AirportEnum departureAirport, AirportEnum arrivalAirport) {
+        Calendar departureDate = new GregorianCalendar(2010, 2, 15);
+        Calendar arrivalDate = new GregorianCalendar(2010, 6, 16);
+
+        return new Segment(departureAirport, arrivalAirport, departureDate, arrivalDate, 651, "AB777", ACTIVE);
+    }
 }

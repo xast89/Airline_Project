@@ -1,8 +1,18 @@
 package com.learning;
 
 import com.learning.analyzer.ageAnalizer.Date.PassengerBirthDayAnalizer;
+import com.learning.analyzer.ageAnalizer.Segment.SegmentSorter;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
+import com.learning.structure.booking.Segment;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.List;
+
+import static java.util.Calendar.*;
+import static java.util.Collections.sort;
 
 /**
  * Created by pawel on 15.01.17.
@@ -19,17 +29,27 @@ public class Main {
         Booking twoAdultOneWay = BookingFactory.createTwoAdultOneWay();
         Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
         Booking threeAdultOneWay = BookingFactory.createThreeAdultOneWay();
-
-//        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
+        List<Segment> segmentList = oneAdultOneWay.getPassengerList().get(0).getSegmentList();
+        SegmentSorter segmentSorter = new SegmentSorter();
+////        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
+////
+////        flightDayAnalizer.analyze(oneAdultOneWay);
 //
-//        flightDayAnalizer.analyze(oneAdultOneWay);
+//        PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
+//        passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
+//
+        for (Segment segment : segmentList) {
 
-        PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
-        passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
-//        System.out.println();
-//        passangerInformationAnalizer.analyze(twoAdultOneWay);   //  booking z nullowymi danymi
-        System.out.println();
-//        passangerInformationAnalizer.analyze(threeAdultOneWay);  // booking z niepoprawnym formatem daty ruodzenia
+            System.out.println(segment.getDepartureDate().get(YEAR) + "."+segment.getDepartureDate().get(MONTH) + "."+ segment.getDepartureDate().get(DAY_OF_MONTH) );
+        }
+
+        sort(segmentList,segmentSorter);
+        System.out.println("Sortujemy");
+
+        for (Segment segment : segmentList) {
+
+            System.out.println(segment.getDepartureDate().get(YEAR) + "."+segment.getDepartureDate().get(MONTH) + "."+ segment.getDepartureDate().get(DAY_OF_MONTH) );
+        }
 
 
     }
