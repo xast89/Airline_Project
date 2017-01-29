@@ -42,5 +42,19 @@ public class SegmentSorterTest {
         //then
         assertEquals(-1,result);
     }
+    @Test
+    public  void checkWhenSegmentsHaveSameDepartureDates(){
+
+        //given
+        Calendar departureDay1 = new GregorianCalendar(2000, 1, 1);
+        Calendar departureDay2 = new GregorianCalendar(2000, 1, 1);
+        Mockito.when(segment.getDepartureDate()).thenReturn(departureDay1);
+        Mockito.when(segment1.getDepartureDate()).thenReturn(departureDay2);
+
+        //when
+        int result = segmentSorter.compare(segment,segment1);
+        //then
+        assertEquals(0,result);
+    }
 
 }
