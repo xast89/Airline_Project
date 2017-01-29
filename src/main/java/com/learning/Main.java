@@ -6,10 +6,7 @@ import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Segment;
 
-import java.util.*;
-
-import static java.util.Calendar.*;
-import static java.util.Collections.sort;
+import java.util.List;
 
 /**
  * Created by pawel on 15.01.17.
@@ -34,6 +31,6 @@ public class Main {
 
         PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
         passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
-        
+
     }
 }

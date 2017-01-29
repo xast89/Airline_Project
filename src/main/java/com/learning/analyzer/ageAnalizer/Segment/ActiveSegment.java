@@ -5,9 +5,6 @@ import com.learning.structure.booking.Segment;
 
 import java.util.Collections;
 
-import static com.learning.structure.util.FlightStatus.ACTIVE;
-import static java.util.Arrays.sort;
-
 /**
  * Created by Cyprian on 2017-01-25.
  */
@@ -22,7 +19,7 @@ public class ActiveSegment {
     public Segment findActiveSegment(Passenger passenger) {
 
 
-        Collections.sort(passenger.getSegmentList(),segmentSorter);
+        Collections.sort(passenger.getSegmentList(), segmentSorter);
 
         for (Segment segment : passenger.getSegmentList()) {
             if (segment.isActive()) {

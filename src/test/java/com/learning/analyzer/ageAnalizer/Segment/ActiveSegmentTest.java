@@ -1,5 +1,6 @@
 package com.learning.analyzer.ageAnalizer.Segment;
 
+import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
 import org.junit.Before;
@@ -23,6 +24,8 @@ public class ActiveSegmentTest {
     @InjectMocks
     private ActiveSegment activeSegment;
 
+    private Booking booking;
+
     @Mock
     private Passenger passenger;
     @Mock
@@ -32,6 +35,7 @@ public class ActiveSegmentTest {
     public void setUo() {
         activeSegment = new ActiveSegment();
     }
+
 
     @Test
     public void checkIfThereAreNoneActiveSegmentsOnSegmentsList() {
@@ -55,7 +59,7 @@ public class ActiveSegmentTest {
         //when
         Segment result = this.activeSegment.findActiveSegment(passenger);
         //then
-        assertEquals(segment,result);
+        assertEquals(segment, result);
 
     }
 
