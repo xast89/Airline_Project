@@ -6,10 +6,7 @@ import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Segment;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 import static java.util.Calendar.*;
 import static java.util.Collections.sort;
@@ -31,26 +28,12 @@ public class Main {
         Booking threeAdultOneWay = BookingFactory.createThreeAdultOneWay();
         List<Segment> segmentList = oneAdultOneWay.getPassengerList().get(0).getSegmentList();
         SegmentSorter segmentSorter = new SegmentSorter();
-////        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
-////
-////        flightDayAnalizer.analyze(oneAdultOneWay);
+//        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
 //
-//        PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
-//        passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
-//
-        for (Segment segment : segmentList) {
+//        flightDayAnalizer.analyze(oneAdultOneWay);
 
-            System.out.println(segment.getDepartureDate().get(YEAR) + "."+segment.getDepartureDate().get(MONTH) + "."+ segment.getDepartureDate().get(DAY_OF_MONTH) );
-        }
-
-        sort(segmentList,segmentSorter);
-        System.out.println("Sortujemy");
-
-        for (Segment segment : segmentList) {
-
-            System.out.println(segment.getDepartureDate().get(YEAR) + "."+segment.getDepartureDate().get(MONTH) + "."+ segment.getDepartureDate().get(DAY_OF_MONTH) );
-        }
-
-
+        PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
+        passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
+        
     }
 }
