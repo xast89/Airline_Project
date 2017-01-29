@@ -38,7 +38,8 @@ public class PassengerBirthDayAnalizerTest {
     private PassportAnalizer passportAnalizer;
     @Mock
     private Passenger passenger;
-    @Mock
+    //TODO: Dlaczego Mock?
+//    @Mock
     private Calendar calendar;
     @Mock
     private ActiveSegment activeSegment;
@@ -47,11 +48,12 @@ public class PassengerBirthDayAnalizerTest {
     @Mock
     private Segment segment;
 
-    @Before
-    public void setUp() {
-        passengerBirthDayAnalizer = new PassengerBirthDayAnalizer();
-
-    }
+    //TODO: Zastanow sie dlaczego to jest zle. I jak bedzie wiedzial / nie bedziesz wiedzial to mi powiedz
+//    @Before
+//    public void setUp() {
+//        passengerBirthDayAnalizer = new PassengerBirthDayAnalizer();
+//
+//    }
 
     @Test
     public void testAnalyze() {
@@ -70,9 +72,11 @@ public class PassengerBirthDayAnalizerTest {
         //given
         Booking booking = BookingFactory.createOneAdultOneWay();
         calendar = new GregorianCalendar(2000, 10, 10);
-        Mockito.when(activeSegment.findActiveSegment(booking.getPassengerList().get(0))).thenReturn(segment);
+//        Mockito.when(activeSegment.findActiveSegment(booking.getPassengerList().get(0))).thenReturn(segment);
+        Mockito.when(activeSegment.findActiveSegment(any(Passenger.class))).thenReturn(segment);
         Mockito.when(passportAnalizer.getBirthDayFromPassport(any(Passenger.class))).thenReturn(calendar);
-        Mockito.when(ageAtSegment.countDays(booking.getPassengerList().get(0).getSegmentList().get(0), calendar)).thenReturn(1000);
+//        Mockito.when(ageAtSegment.countDays(booking.getPassengerList().get(0).getSegmentList().get(0), calendar)).thenReturn(1000);
+        Mockito.when(ageAtSegment.countDays(segment, calendar)).thenReturn(1000);
 
         //when
         passengerBirthDayAnalizer.analyze(booking);
@@ -88,10 +92,11 @@ public class PassengerBirthDayAnalizerTest {
 
         //given
         Booking booking = BookingFactory.createOneAdultOneWay();
-        Mockito.when(passportAnalizer.getBirthDayFromPassport(passenger)).thenReturn(null);
+        Mockito.when(passportAnalizer.getBirthDayFromPassport(booking.getPassengerList().get(0))).thenReturn(null);
         //when
         passengerBirthDayAnalizer.analyze(booking);
         //then
+        //TODO: W ogole nie rozumiem tego testu - w sensie tej asserci ponizej. Co ona ma sprawdzic?
         assertEquals(0,calendar.get(Calendar.MONTH));
 
 
