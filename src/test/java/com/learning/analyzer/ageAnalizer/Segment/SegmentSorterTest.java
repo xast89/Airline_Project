@@ -25,10 +25,7 @@ public class SegmentSorterTest {
     @Mock
     private Segment segment1;
 
-    @Before
-    public void setUp(){
-        segmentSorter = new SegmentSorter();
-    }
+
     @Test
     public  void checkIfSegmentListIsProperlySorted(){
         //given

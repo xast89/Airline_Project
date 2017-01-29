@@ -24,17 +24,10 @@ public class ActiveSegmentTest {
     @InjectMocks
     private ActiveSegment activeSegment;
 
-    private Booking booking;
-
     @Mock
     private Passenger passenger;
     @Mock
     private Segment segment;
-
-    @Before
-    public void setUo() {
-        activeSegment = new ActiveSegment();
-    }
 
 
     @Test
