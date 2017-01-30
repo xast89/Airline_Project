@@ -43,9 +43,9 @@ public class DepartureDayAnalizerTest {
     private List<Segment> createTestSegmentList() {
         GregorianCalendar gregorianCalendar = new GregorianCalendar(2000, 10, 12);
         GregorianCalendar gregorianCalendar1 = new GregorianCalendar(2000, 10, 13);
-        Segment segment0 = new Segment(AirportEnum.GDN, AirportEnum.KRK, gregorianCalendar, gregorianCalendar1, 651, "AB737", ACTIVE);
-        Segment segment1 = new Segment(AirportEnum.GDN, AirportEnum.KRK, gregorianCalendar, gregorianCalendar1, 641, "AB767", ACTIVE);
-        Segment segment2 = new Segment(AirportEnum.GDN, AirportEnum.KRK, gregorianCalendar, gregorianCalendar1, 601, "AB577", ACTIVE);
+        Segment segment0 = new Segment(AirportEnum.GDN, AirportEnum.KRK, gregorianCalendar, gregorianCalendar1, 651, "AB737", ACTIVE, null);
+        Segment segment1 = new Segment(AirportEnum.GDN, AirportEnum.KRK, gregorianCalendar, gregorianCalendar1, 641, "AB767", ACTIVE, null);
+        Segment segment2 = new Segment(AirportEnum.GDN, AirportEnum.KRK, gregorianCalendar, gregorianCalendar1, 601, "AB577", ACTIVE, null);
 
         List<Segment> segments = new ArrayList<Segment>();
         segments.add(segment0);
