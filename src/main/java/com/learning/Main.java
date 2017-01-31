@@ -1,12 +1,8 @@
 package com.learning;
 
-import com.learning.analyzer.ageAnalizer.Date.PassengerBirthDayAnalizer;
-import com.learning.analyzer.ageAnalizer.Segment.SegmentSorter;
+import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSeeker;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
-import com.learning.structure.booking.Segment;
-
-import java.util.List;
 
 /**
  * Created by pawel on 15.01.17.
@@ -17,9 +13,15 @@ public class Main {
 
 // TODO: Poczytac o Singletonie
 
-        //F7 -> wchodzi do metody
-        //F8 -> krok naprzod
-//        //F9 -> puszcza debaga do nastepnego breakpointa
+
+        Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
+        //  System.out.println(bookingForSCAnalyzer);
+
+        MailSeeker mailSeeker = new MailSeeker();
+        mailSeeker.findMail(bookingForSCAnalyzer.getPassengerList().get(0));
+
+
+
 //        Booking twoAdultOneWay = BookingFactory.createTwoAdultOneWay();
 //        Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
 //        Booking threeAdultOneWay = BookingFactory.createThreeAdultOneWay();
@@ -33,8 +35,6 @@ public class Main {
 //        passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
 
 
-        Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
-        System.out.println(bookingForSCAnalyzer);
 
     }
 }
