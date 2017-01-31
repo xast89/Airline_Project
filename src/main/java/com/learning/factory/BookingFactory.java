@@ -36,7 +36,7 @@ public class BookingFactory {
 
     public static Booking createBookingForSCAnalyzer()
     {
-        List<Passenger> passengers = Arrays.asList(passengerForSCAnalyzer());
+        List<Passenger> passengers = Arrays.asList(passengerForSCAnalyzer(), passengerForSCAnalyzer());
 
         return new Booking(passengers, "BUX1234", FlightStatus.ACTIVE);
     }
