@@ -82,7 +82,7 @@ public class PassengerFactory {
                                 Arrays.asList(OK)
                         ));
 
-        List<String> passengerInformation = Arrays.asList("ADD/IXIS2/8989", "DOC/PAS/DE/123WXY/12JAN08/XPD/20JAN20"); //XPD INFORMACJA O KRAJU O ZMIENNEJ DLUGOSCI, DE tak samo.
+        List<String> passengerInformation = Arrays.asList("ADD/IXIS2/8989", "DOC/PAS/DE/123WXY/12JAN08/XPD/20JAN20","mail/cforemny@gmail.com");
 
         Ticket ticket = TicketFactory.createTicket(true);
 

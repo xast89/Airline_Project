@@ -19,18 +19,22 @@ public class Main {
 
         //F7 -> wchodzi do metody
         //F8 -> krok naprzod
-        //F9 -> puszcza debaga do nastepnego breakpointa
-        Booking twoAdultOneWay = BookingFactory.createTwoAdultOneWay();
-        Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
-        Booking threeAdultOneWay = BookingFactory.createThreeAdultOneWay();
-        List<Segment> segmentList = oneAdultOneWay.getPassengerList().get(0).getSegmentList();
-        SegmentSorter segmentSorter = new SegmentSorter();
-//        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
+//        //F9 -> puszcza debaga do nastepnego breakpointa
+//        Booking twoAdultOneWay = BookingFactory.createTwoAdultOneWay();
+//        Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
+//        Booking threeAdultOneWay = BookingFactory.createThreeAdultOneWay();
+//        List<Segment> segmentList = oneAdultOneWay.getPassengerList().get(0).getSegmentList();
+//        SegmentSorter segmentSorter = new SegmentSorter();
+////        PassangerDepartureDayAnalizer flightDayAnalizer = new PassangerDepartureDayAnalizer();
+////
+////        flightDayAnalizer.analyze(oneAdultOneWay);
 //
-//        flightDayAnalizer.analyze(oneAdultOneWay);
+//        PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
+//        passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
 
-        PassengerBirthDayAnalizer passangerInformationAnalizer = new PassengerBirthDayAnalizer();
-        passangerInformationAnalizer.analyze(oneAdultOneWay);   // poprawny booking
+
+        Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
+        System.out.println(bookingForSCAnalyzer);
 
     }
 }
