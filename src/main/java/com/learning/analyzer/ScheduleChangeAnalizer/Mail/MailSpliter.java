@@ -4,7 +4,8 @@ package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
  * Created by Cyprian on 2017-01-31.
  */
 public class MailSpliter {
-    public static final String REGEX = "/";
+
+    private static final String REGEX = "/";
 
     public String findMailInformatiom(String passengerInformation) {
         if (passengerInformation != null) {
