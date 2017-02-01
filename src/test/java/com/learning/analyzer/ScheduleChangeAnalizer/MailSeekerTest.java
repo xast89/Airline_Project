@@ -13,6 +13,8 @@ import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static org.mockito.Matchers.any;
 
 import static org.junit.Assert.assertEquals;
