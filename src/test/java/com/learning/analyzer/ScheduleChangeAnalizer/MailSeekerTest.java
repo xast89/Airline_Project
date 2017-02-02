@@ -43,7 +43,7 @@ public class MailSeekerTest {
 
         Booking booking = BookingFactory.createBookingForSCAnalyzer();
 //        Passenger passengerInformation = booking.getPassengerList().get(any(Passenger.class)).getPassengerInformation();
-        Mockito.when(mailSpliter.findMailInformatiom().thenReturn("cforemny@gmail.com");
+        Mockito.when(mailSpliter.findMailInformatiom(booking.getPassengerList().get(0).getPassengerInformation().get(2))).thenReturn("cforemny@gmail.com");
         //when
         String result = mailSeeker.findMail(booking.getPassengerList().get(0));
         //then
