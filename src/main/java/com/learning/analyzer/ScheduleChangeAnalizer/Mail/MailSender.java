@@ -5,12 +5,15 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
+
 public class MailSender {
 
-    public static void main(String[] args) {
+    public static void sendEmail() {
 
         final String username = "cforemny@gmail.com";
-        final String password = "tajnehaslo";
+        final String password = "foremny22a";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -30,14 +33,13 @@ public class MailSender {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("cforemny@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("cforemny@gmail.com "));
-            message.setSubject("Super wiadomosc od cypa");
-            message.setText("Drogi Pawle!"
-                    + "\n\n Pozdrowienia z javy");
+                    InternetAddress.parse("cforemny@gmail.com, zajac.aleksandraa@gmail.com "));
+            message.setSubject("Lot odwolany");
+            message.setText("Burza snieżna, nie ma latania");
 
             Transport.send(message);
 
-            System.out.println("wyslane");
+            LOGGER.info("Wslalano maila");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);

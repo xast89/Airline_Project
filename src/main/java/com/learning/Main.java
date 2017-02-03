@@ -1,17 +1,16 @@
 package com.learning;
 
 import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSeeker;
+import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSender;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
-
-import javax.mail.MessagingException;
 
 /**
  * Created by pawel on 15.01.17.
  */
 public class Main {
 
-    public static void main(String[] args) throws MessagingException {
+    public static void main(String[] args)  {
 
 // TODO: Poczytac o Singletonie
 
@@ -22,6 +21,7 @@ public class Main {
         MailSeeker mailSeeker = new MailSeeker();
         String mail = mailSeeker.findMail(bookingForSCAnalyzer.getPassengerList().get(0));
         System.out.println(mail);
+        MailSender.sendEmail();
 
 
 //        Booking twoAdultOneWay = BookingFactory.createTwoAdultOneWay();

@@ -1,6 +1,5 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
-import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSpliter;
 import com.learning.structure.booking.Passenger;
 
 /**

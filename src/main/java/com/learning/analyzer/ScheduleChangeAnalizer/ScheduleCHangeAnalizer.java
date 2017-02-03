@@ -11,5 +11,6 @@ public class ScheduleCHangeAnalizer implements Analyzer {
     @Override
     public void analyze(Booking booking) {
 
+
     }
 }

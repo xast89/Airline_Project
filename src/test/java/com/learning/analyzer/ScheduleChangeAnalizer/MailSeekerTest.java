@@ -4,18 +4,13 @@ import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSeeker;
 import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSpliter;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
-import com.learning.structure.booking.Passenger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
-import static org.mockito.Matchers.any;
 
 import static org.junit.Assert.assertEquals;
 
