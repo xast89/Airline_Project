@@ -3,12 +3,20 @@ package com.learning.analyzer.ScheduleChangeAnalizer;
 import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSeeker;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
+import com.learning.structure.booking.Passenger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.Arrays;
+
+import static java.util.Arrays.*;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.any;
 
 @RunWith(MockitoJUnitRunner.class)
 /**
@@ -16,9 +24,11 @@ import static org.junit.Assert.assertEquals;
  */
 public class MailSeekerTest {
 
-
+    @InjectMocks
     private MailSeeker mailSeeker;
 
+    @Mock
+    private  Passenger passenger;
 
     @Before
     public void setUp() {
@@ -31,10 +41,24 @@ public class MailSeekerTest {
 
         //given
         Booking booking = BookingFactory.createBookingForSCAnalyzer();
+
         //when
         String result = mailSeeker.findMail(booking.getPassengerList().get(0));
         //then
         assertEquals("cforemny@gmail.com", result);
+    }
+
+    @Test
+    public void findMailInPassengerInformationWhenAdressIsInCorrect() {
+
+        //given
+        Booking booking = BookingFactory.createBookingForSCAnalyzer();
+        Mockito.when(passenger.getPassengerInformation()).thenReturn(asList("Incorrect","Incorrect","Incorrect"));
+
+        //when
+        String result = mailSeeker.findMail(passenger);
+        //then
+        assertEquals(null, result);
     }
 
 
