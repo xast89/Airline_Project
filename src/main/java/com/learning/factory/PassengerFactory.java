@@ -87,6 +87,7 @@ public class PassengerFactory {
         return new Passenger(name, surname, PassengerType.ADULT, segments, passengerInformation, ticket);
 
     }
+
     public static Passenger passengerForSCAnalyzerTwo() {
         String name = "Paul";
         String surname = "Gondek";
