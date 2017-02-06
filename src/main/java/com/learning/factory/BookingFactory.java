@@ -14,29 +14,26 @@ import static com.learning.factory.PassengerFactory.*;
  */
 public class BookingFactory {
 
-    public static Booking createOneAdultOneWay()
-    {
+    public static Booking createOneAdultOneWay() {
         List<Passenger> passengers = Arrays.asList(oneAdultOneWay());
 
         return new Booking(passengers, "PIXJTS", FlightStatus.ACTIVE);
     }
 
-    public static Booking createTwoAdultOneWay()
-    {
+    public static Booking createTwoAdultOneWay() {
         List<Passenger> passengers = Arrays.asList(twoAdultoneWay());
 
         return new Booking(passengers, null, FlightStatus.ACTIVE);
     }
-    public static Booking createThreeAdultOneWay()
-    {
+
+    public static Booking createThreeAdultOneWay() {
         List<Passenger> passengers = Arrays.asList(threeAdultoneWay());
 
         return new Booking(passengers, null, FlightStatus.ACTIVE);
     }
 
-    public static Booking createBookingForSCAnalyzer()
-    {
-        List<Passenger> passengers = Arrays.asList(passengerForSCAnalyzer(), passengerForSCAnalyzer());
+    public static Booking createBookingForSCAnalyzer() {
+        List<Passenger> passengers = Arrays.asList(passengerForSCAnalyzer(), passengerForSCAnalyzerTwo(), passengerForSCAnalyzer());
 
         return new Booking(passengers, "BUX1234", FlightStatus.ACTIVE);
     }

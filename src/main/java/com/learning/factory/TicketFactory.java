@@ -7,8 +7,7 @@ import com.learning.structure.ticketing.Ticket;
  */
 public class TicketFactory {
 
-    public static Ticket createTicket(boolean paid)
-    {
+    public static Ticket createTicket(boolean paid) {
         return new Ticket(paid);
     }
 

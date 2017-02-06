@@ -6,8 +6,10 @@ import com.learning.analyzer.ageAnalizer.Month.Month;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import static java.lang.Integer.*;
-import static java.util.Calendar.*;
+import static java.lang.Integer.parseInt;
+import static java.lang.Integer.valueOf;
+import static java.util.Calendar.YEAR;
+import static java.util.Calendar.getInstance;
 
 /**
  * Created by Cyprian on 2017-01-17.
@@ -19,7 +21,7 @@ public class BirthdayStringConverter {
     private int actualYear;
 
     public BirthdayStringConverter() {
-        actualYear=(getInstance().get(YEAR))-2000;
+        actualYear = (getInstance().get(YEAR)) - 2000;
     }
 
     public Calendar convertPassengerBirthdayToInt(String passengerBirthdayFromPassport) {
@@ -28,21 +30,19 @@ public class BirthdayStringConverter {
         DateSpliter dateSpliter = new DateSpliter();
         dateSpliter.splitPassengerinformation(passengerBirthdayFromPassport);
 
-        if(isNotGoodSplitted(dateSpliter))
-        {
+        if (isNotGoodSplitted(dateSpliter)) {
             return null;
         }
 
 
         int intValueOfDay = valueOf(dateSpliter.getDay());
         int intValueOfMonth = monthOfPassengerBirthday.checkPassengerMonthBirthday(dateSpliter.getMonth());
-            if(intValueOfMonth==0)
-            {
-                System.out.println("Bledny format daty w paszporcie.");
+        if (intValueOfMonth == 0) {
+            System.out.println("Bledny format daty w paszporcie.");
 
-            }
-                Calendar passengerGregorianCalendar = new GregorianCalendar(checkIfYearIsLeap(dateSpliter.getYear()), intValueOfMonth, intValueOfDay);
-                return passengerGregorianCalendar;
+        }
+        Calendar passengerGregorianCalendar = new GregorianCalendar(checkIfYearIsLeap(dateSpliter.getYear()), intValueOfMonth, intValueOfDay);
+        return passengerGregorianCalendar;
     }
 
     private boolean isNotGoodSplitted(DateSpliter dateSpliter) {
@@ -50,15 +50,15 @@ public class BirthdayStringConverter {
     }
 
 
-    private int checkIfYearIsLeap(String year){
-        if(0<= parseInt(year) && parseInt(year)<=actualYear){
-            int intValueOfYear = parseInt(year)+2000;
+    private int checkIfYearIsLeap(String year) {
+        if (0 <= parseInt(year) && parseInt(year) <= actualYear) {
+            int intValueOfYear = parseInt(year) + 2000;
             return intValueOfYear;
         }
-        int intValueOfYear = parseInt(year)+1900;;
+        int intValueOfYear = parseInt(year) + 1900;
+        ;
         return intValueOfYear;
     }
-
 
 
 }

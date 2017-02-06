@@ -1,5 +1,7 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 /**
  * Created by Cyprian on 2017-01-31.
  */
@@ -15,6 +17,7 @@ public class MailSpliter {
                     return passengerMail[1];
             }
         }
+        LOGGER.info("Wslalano maila");
         return null;
     }
 }

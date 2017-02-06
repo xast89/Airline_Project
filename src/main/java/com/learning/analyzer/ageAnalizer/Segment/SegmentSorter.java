@@ -1,6 +1,5 @@
 package com.learning.analyzer.ageAnalizer.Segment;
 
-import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Segment;
 
 import java.util.Calendar;
@@ -12,7 +11,7 @@ import java.util.Comparator;
 public class SegmentSorter implements Comparator<Segment> {
 
 
-      @Override
+    @Override
     public int compare(Segment segment1, Segment segment2) {
 
         Calendar departureDateFromSegment1 = segment1.getDepartureDate();
@@ -22,10 +21,9 @@ public class SegmentSorter implements Comparator<Segment> {
 
         if (dateSubstraction < 0) {
             return -1;
-        }else
-        if (dateSubstraction == 0) {
+        } else if (dateSubstraction == 0) {
             return 0;
-        }else
-        return 1;
+        } else
+            return 1;
     }
 }

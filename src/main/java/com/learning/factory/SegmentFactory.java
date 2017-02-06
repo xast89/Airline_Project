@@ -3,7 +3,6 @@ package com.learning.factory;
 import com.learning.structure.booking.Segment;
 import com.learning.structure.util.AirportEnum;
 
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;

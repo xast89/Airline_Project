@@ -10,6 +10,7 @@ import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 public class MailSender {
 
+
     public static void sendEmail() {
 
         final String username = "cforemny@gmail.com";
@@ -29,11 +30,13 @@ public class MailSender {
                 });
 
         try {
+            EmailListAsString emailListAsString = new EmailListAsString();
+            String adresses = emailListAsString.createAdresses();
 
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("cforemny@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse("cforemny@gmail.com, zajac.aleksandraa@gmail.com "));
+                    InternetAddress.parse(adresses));
             message.setSubject("Lot odwolany");
             message.setText("Burza snieżna, nie ma latania");
 
@@ -45,4 +48,6 @@ public class MailSender {
             throw new RuntimeException(e);
         }
     }
+
+
 }

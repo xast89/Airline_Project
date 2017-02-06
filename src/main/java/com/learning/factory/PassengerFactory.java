@@ -3,7 +3,6 @@ package com.learning.factory;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
 import com.learning.structure.ticketing.Ticket;
-import com.learning.structure.util.AirportEnum;
 import com.learning.structure.util.PassengerType;
 
 import java.util.Arrays;
@@ -65,15 +64,14 @@ public class PassengerFactory {
 
     }
 
-    public static Passenger passengerForSCAnalyzer()
-    {
+    public static Passenger passengerForSCAnalyzer() {
         String name = "Jon";
         String surname = "Tower";
 
         List<Segment> segments =
                 Arrays.asList(
                         segmentForSCAnalyzer(
-                                new GregorianCalendar(2017,5,14),
+                                new GregorianCalendar(2017, 5, 14),
                                 new GregorianCalendar(2017, 5, 21),
                                 Arrays.asList(SCHEDULE_CHANGE)),
                         segmentForSCAnalyzer(
@@ -82,7 +80,30 @@ public class PassengerFactory {
                                 Arrays.asList(OK)
                         ));
 
-        List<String> passengerInformation = Arrays.asList("ADD/IXIS2/8989", "DOC/PAS/DE/123WXY/12JAN08/XPD/20JAN20","mail/cforemny@gmail.com");
+        List<String> passengerInformation = Arrays.asList("ADD/IXIS2/8989", "DOC/PAS/DE/123WXY/12JAN08/XPD/20JAN20", "mail/cforemny@gmail.com");
+
+        Ticket ticket = TicketFactory.createTicket(true);
+
+        return new Passenger(name, surname, PassengerType.ADULT, segments, passengerInformation, ticket);
+
+    }
+    public static Passenger passengerForSCAnalyzerTwo() {
+        String name = "Paul";
+        String surname = "Gondek";
+
+        List<Segment> segments =
+                Arrays.asList(
+                        segmentForSCAnalyzer(
+                                new GregorianCalendar(2017, 5, 14),
+                                new GregorianCalendar(2017, 5, 21),
+                                Arrays.asList(SCHEDULE_CHANGE)),
+                        segmentForSCAnalyzer(
+                                new GregorianCalendar(2017, 5, 17),
+                                new GregorianCalendar(2017, 5, 24),
+                                Arrays.asList(OK)
+                        ));
+
+        List<String> passengerInformation = Arrays.asList("ADD/IXIS2/8989", "DOC/PAS/DE/123WXY/12JAN08/XPD/20JAN20", "mail/pawel.gondek@gmail.com ");
 
         Ticket ticket = TicketFactory.createTicket(true);
 

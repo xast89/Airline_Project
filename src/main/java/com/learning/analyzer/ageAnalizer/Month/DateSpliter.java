@@ -12,9 +12,11 @@ public class DateSpliter {
     public String getDay() {
         return day;
     }
+
     public String getMonth() {
         return month;
     }
+
     public String getYear() {
         return year;
     }

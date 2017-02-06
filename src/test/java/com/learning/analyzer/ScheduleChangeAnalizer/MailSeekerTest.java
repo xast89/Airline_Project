@@ -1,15 +1,11 @@
 package com.learning.analyzer.ScheduleChangeAnalizer;
 
 import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSeeker;
-import com.learning.analyzer.ScheduleChangeAnalizer.Mail.MailSpliter;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
@@ -20,10 +16,9 @@ import static org.junit.Assert.assertEquals;
  */
 public class MailSeekerTest {
 
-    @InjectMocks
+
     private MailSeeker mailSeeker;
-    @Mock
-    private MailSpliter mailSpliter;
+
 
     @Before
     public void setUp() {
@@ -32,17 +27,15 @@ public class MailSeekerTest {
     }
 
     @Test
-    public void findMailInPassengerInformation() {
+    public void findMailInPassengerInformationWhenAdressIsCorrect() {
 
         //given
-
         Booking booking = BookingFactory.createBookingForSCAnalyzer();
-//        Passenger passengerInformation = booking.getPassengerList().get(any(Passenger.class)).getPassengerInformation();
-        Mockito.when(mailSpliter.findMailInformatiom(booking.getPassengerList().get(0).getPassengerInformation().get(2))).thenReturn("cforemny@gmail.com");
         //when
         String result = mailSeeker.findMail(booking.getPassengerList().get(0));
         //then
         assertEquals("cforemny@gmail.com", result);
     }
+
 
 }

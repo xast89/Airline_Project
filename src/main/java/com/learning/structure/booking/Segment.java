@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.learning.structure.util.FlightStatus.*;
+import static com.learning.structure.util.FlightStatus.ACTIVE;
 
 /**
  * Created by pawel on 15.01.17.
