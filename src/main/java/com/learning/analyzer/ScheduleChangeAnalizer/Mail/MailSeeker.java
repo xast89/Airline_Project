@@ -11,6 +11,7 @@ public class MailSeeker {
 
     private MailSpliter mailSpliter;
 
+
     public MailSeeker() {
         this.mailSpliter = new MailSpliter();
     }

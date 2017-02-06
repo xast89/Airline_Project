@@ -4,10 +4,10 @@ package com.learning.analyzer.ageAnalizer.Month;
  * Created by Cyprian on 2017-01-26.
  */
 public class DateSpliter {
+    public static final String REGEX = "/";
     private String day;
     private String month;
     private String year;
-    public static final String REGEX = "/";
 
     public String getDay() {
         return day;

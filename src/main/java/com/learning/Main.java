@@ -15,7 +15,8 @@ public class Main {
 
 
         Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
-//        MailSender.sendEmail();
+        MailSender mailSender = new MailSender();
+        mailSender.sendEmail();
 
 
 //        Booking twoAdultOneWay = BookingFactory.createTwoAdultOneWay();

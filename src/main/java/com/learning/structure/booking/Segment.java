@@ -45,52 +45,52 @@ public class Segment {
         return arrivalAirport;
     }
 
-    public AirportEnum getDepartureAirport() {
-        return departureAirport;
-    }
-
-    public Calendar getDepartureDate() {
-        return departureDate;
-    }
-
-    public Calendar getArrivalDate() {
-        return arrivalDate;
-    }
-
-    public int getFlightNumber() {
-        return flightNumber;
-    }
-
-    public String getEquipment() {
-        return equipment;
-    }
-
-    public FlightStatus getFlightStatus() {
-        return flightStatus;
-    }
-
     public void setArrivalAirport(AirportEnum arrivalAirport) {
         this.arrivalAirport = arrivalAirport;
+    }
+
+    public AirportEnum getDepartureAirport() {
+        return departureAirport;
     }
 
     public void setDepartureAirport(AirportEnum departureAirport) {
         this.departureAirport = departureAirport;
     }
 
+    public Calendar getDepartureDate() {
+        return departureDate;
+    }
+
     public void setDepartureDate(Calendar departureDate) {
         this.departureDate = departureDate;
+    }
+
+    public Calendar getArrivalDate() {
+        return arrivalDate;
     }
 
     public void setArrivalDate(Calendar arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
+    public int getFlightNumber() {
+        return flightNumber;
+    }
+
     public void setFlightNumber(int flightNumber) {
         this.flightNumber = flightNumber;
     }
 
+    public String getEquipment() {
+        return equipment;
+    }
+
     public void setEquipment(String equipment) {
         this.equipment = equipment;
+    }
+
+    public FlightStatus getFlightStatus() {
+        return flightStatus;
     }
 
     public void setFlightStatus(FlightStatus flightStatus) {
@@ -105,11 +105,11 @@ public class Segment {
         this.segmentInformation = segmentInformation;
     }
 
-    public void setResultMap(Map<String, Object> resultMap) {
-        this.resultMap = resultMap;
-    }
-
     public Map<String, Object> getResultMap() {
         return resultMap;
+    }
+
+    public void setResultMap(Map<String, Object> resultMap) {
+        this.resultMap = resultMap;
     }
 }
