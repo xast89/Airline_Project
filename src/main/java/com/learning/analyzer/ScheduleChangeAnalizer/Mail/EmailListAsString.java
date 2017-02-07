@@ -16,8 +16,10 @@ public class EmailListAsString {
     private StringBuilder list;
 
     public EmailListAsString() {
+        //TODO: No chlopie! Nie tworz sobie danych w srodku analyzera
         this.booking = BookingFactory.createBookingForSCAnalyzer();
         this.emailList = new EmailList();
+        //TODO: dlaczego tak podstepnie robisz takie machlojki w konstruktorze? Nie lepiej w metodzie?
         this.emailAdressesList = emailList.createEmailAdressesList(booking);
         this.list = new StringBuilder();
     }

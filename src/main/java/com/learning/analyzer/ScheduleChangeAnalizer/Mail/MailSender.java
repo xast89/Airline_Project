@@ -26,14 +26,17 @@ public class MailSender {
     }
 
 
+    //TODO: Tutaj cos drogi kolega klamie. Ta metodka robi o wiele wiecej niz 'sendEmail'
     public void sendEmail(Booking booking) {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";
+        //TODO: A moze schowac to do jakies prywatnej metodki? Cos w stylu: private Properties createProperies();
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
+
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -44,6 +47,7 @@ public class MailSender {
         try {
             EmailListAsString emailListAsString = new EmailListAsString();
             String adresses = emailListAsString.createAdresses();
+            //TODO: Obie metodki na dole moga zwrocic Ci nulla. Czyli ze co? Kazdemu bedziesz wysylac maila z nullowa wartoscia? :>
             String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
             String messageAboutNewdFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());
 
