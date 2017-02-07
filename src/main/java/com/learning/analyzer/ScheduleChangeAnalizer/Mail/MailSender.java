@@ -2,11 +2,13 @@ package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
 
 import com.learning.analyzer.ScheduleChangeAnalizer.Schedule.MessageCreator;
-import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 import org.apache.log4j.Logger;
 
-import javax.mail.*;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
@@ -16,20 +18,16 @@ public class MailSender {
 
     private Logger logger = Logger.getLogger(MailSender.class);
     private MessageCreator messageCreator;
-    private Booking booking;
+
 
     public MailSender() {
         this.messageCreator = new MessageCreator();
-        //TODO: as wymyslil. Przeciez w Twoim kodzie nie tworzysz danych na których pracujesz. Dane otrzymujesz z zewnątrz.
-        this.booking = BookingFactory.createBookingForSCAnalyzer();
+
     }
 
-    //    public void setLogger(Logger logger) {
-//        this.logger = logger;
-//    }
 
-    //TODO: public void sendEmail(Booking booking) ?
-    public void sendEmail() {
+
+    public void sendEmail(Booking booking) {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";
         Properties props = new Properties();
@@ -58,7 +56,7 @@ public class MailSender {
             message.setSubject("Lot odwolany");
             message.setText(messageAboutCanceledFlight + messageAboutNewdFlight);
 
-            Transport.send(message);
+//            Transport.send(message);
 
             logger.info("Wyslano maila");
 

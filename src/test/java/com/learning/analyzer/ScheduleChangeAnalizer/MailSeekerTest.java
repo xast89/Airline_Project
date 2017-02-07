@@ -12,11 +12,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.Arrays;
-
-import static java.util.Arrays.*;
+import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
 
 @RunWith(MockitoJUnitRunner.class)
 /**
@@ -28,7 +25,7 @@ public class MailSeekerTest {
     private MailSeeker mailSeeker;
 
     @Mock
-    private  Passenger passenger;
+    private Passenger passenger;
 
     @Before
     public void setUp() {
@@ -53,7 +50,7 @@ public class MailSeekerTest {
 
         //given
         Booking booking = BookingFactory.createBookingForSCAnalyzer();
-        Mockito.when(passenger.getPassengerInformation()).thenReturn(asList("Incorrect","Incorrect","Incorrect"));
+        Mockito.when(passenger.getPassengerInformation()).thenReturn(asList("Incorrect", "Incorrect", "Incorrect"));
 
         //when
         String result = mailSeeker.findMail(passenger);

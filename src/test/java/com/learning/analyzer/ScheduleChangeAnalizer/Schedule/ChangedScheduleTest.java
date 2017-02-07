@@ -10,13 +10,13 @@ import static org.junit.Assert.*;
 /**
  * Created by Cyprian on 2017-02-02.
  */
-public class ScheduleCheckerTest {
+public class ChangedScheduleTest {
 
-    private ChangedSchedule scheduleChecker;
+    private ChangedSchedule changedSchedule;
 
     @Before
     public void setUp(){
-        scheduleChecker = new ChangedSchedule();
+        changedSchedule = new ChangedSchedule();
     }
 
     @Test
@@ -25,7 +25,7 @@ public class ScheduleCheckerTest {
         //given
         Booking booking = BookingFactory.createBookingForSCAnalyzer();
         //when
-        boolean result = scheduleChecker.findSegmentInformation(booking.getPassengerList().get(0).getSegmentList());
+        boolean result = changedSchedule.findSegmentInformation(booking.getPassengerList().get(0).getSegmentList());
         //then
         assertTrue(result);
 

@@ -1,5 +1,7 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
+import com.learning.factory.BookingFactory;
+import com.learning.structure.booking.Booking;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,9 +27,9 @@ public class MailSenderTest {
     public void sendEmailFromRealBooking() {
 
         //given
-
+        Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
         //when
-        mailSender.sendEmail();
+        mailSender.sendEmail(bookingForSCAnalyzer);
         //then
         Mockito.verify(logger).info("Wyslano maila");
     }
