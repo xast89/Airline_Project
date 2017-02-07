@@ -20,7 +20,7 @@ public class MessageCreator {
         this.alternativeSchedule = new AlternativeSchedule();
     }
 
-    public String createMessageAboutNewdFlight(List<Segment> segmentList) {
+    public String createMessageAboutNewFlight(List<Segment> segmentList) {
 
         for (Segment segment : segmentList) {
 

@@ -14,8 +14,8 @@ public class ChangedSchedule {
     public boolean findSegmentInformation(List<Segment> segmentList) {
         for (Segment segment : segmentList) {
 
-            for (String segmenInformation : segment.getSegmentInformation()) {
-                if (segmenInformation.equals(SCHEDULE_CHANGE)) {
+            for (String segmentInformation : segment.getSegmentInformation()) {
+                if (segmentInformation.equals(SCHEDULE_CHANGE)) {
                     return true;
                 }
             }

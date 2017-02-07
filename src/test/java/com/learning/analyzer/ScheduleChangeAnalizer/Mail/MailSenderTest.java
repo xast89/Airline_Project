@@ -19,7 +19,7 @@ public class MailSenderTest {
 
     @InjectMocks
     private MailSender mailSender;
-
+// TODO: zamockowac metody
     @Mock
     private Logger logger;
 

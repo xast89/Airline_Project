@@ -20,7 +20,7 @@ public class ChangedScheduleTest {
     }
 
     @Test
-    public void scheckIfScheduleIsChanged() {
+    public void checkIfScheduleIsChanged() {
 
         //given
         Booking booking = BookingFactory.createBookingForSCAnalyzer();

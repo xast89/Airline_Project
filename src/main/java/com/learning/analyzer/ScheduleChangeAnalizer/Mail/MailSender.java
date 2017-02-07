@@ -45,7 +45,7 @@ public class MailSender {
             EmailListAsString emailListAsString = new EmailListAsString();
             String adresses = emailListAsString.createAdresses();
             String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
-            String messageAboutNewdFlight = messageCreator.createMessageAboutNewdFlight(booking.getPassengerList().get(0).getSegmentList());
+            String messageAboutNewdFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());
 
 
             Message message = new MimeMessage(session);
