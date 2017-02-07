@@ -14,8 +14,19 @@ public class Main {
 
 // TODO: Poczytac o Singletonie
 
+        //TODO: Dla przypomnienia: w tej metodzie (main) maja byc tylko dwie rzeczy:
+        //TODO: 1) utworzenie Bookingu -> bookingDoAnalizy
+        //TODO: 2) wywolanie metody 'twojAnalyzer.analyze(bookingDoAnalizy)
+        //TODO: Czyli mówiąc krótko: te wszystkie tworzenie mailerow itp itd musi sie odbyc w Twoim analyzerze a nie tutaj
 
+
+        // To zostanie
         Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
+        // scheduleChangeAnalyzer.analyze(bookingForSCAnalyzer);
+
+        //TODO: tak po prawdzie, to musisz zaczac od tego, ze stworzysz klaske "ScheduleChangeAnalyzer implements Analuzer"
+        //TODO: i tam cala logike schowac
+        //reszta (to co jest na dole) do wyrzucenia stąd
         MailSender mailSender = new MailSender();
         mailSender.sendEmail();
         MessageCreator messageCreator = new MessageCreator();
