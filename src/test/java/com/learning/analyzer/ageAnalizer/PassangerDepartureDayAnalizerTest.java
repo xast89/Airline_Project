@@ -23,9 +23,6 @@ import java.util.Calendar;
  */
 public class PassangerDepartureDayAnalizerTest {
 
-    @InjectMocks
-    private PassangerDepartureDayAnalizer passangerDepartureDayAnalizer;
-
     @Mock
     Booking booking;
     @Mock
@@ -36,6 +33,8 @@ public class PassangerDepartureDayAnalizerTest {
     Segment segment;
     @Mock
     Calendar departureDate;
+    @InjectMocks
+    private PassangerDepartureDayAnalizer passangerDepartureDayAnalizer;
 
     @Before
     public void setUp() {
@@ -56,8 +55,7 @@ public class PassangerDepartureDayAnalizerTest {
         //when
         passangerDepartureDayAnalizer.analyze(booking);
         //then
-        Assert.assertEquals(segment.getDepartureDate().get(Calendar.YEAR),2000);
-
+        Assert.assertEquals(segment.getDepartureDate().get(Calendar.YEAR), 2000);
 
 
     }

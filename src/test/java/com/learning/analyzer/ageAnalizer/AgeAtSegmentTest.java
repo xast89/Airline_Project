@@ -47,7 +47,7 @@ public class AgeAtSegmentTest {
     public void testCheckAgeAtSegments() {
 
         //given
-       // Mockito.when(segment.getFlightStatus()).thenReturn(FlightStatus.ACTIVE);
+        // Mockito.when(segment.getFlightStatus()).thenReturn(FlightStatus.ACTIVE);
         Mockito.when(passenger.getSegmentList()).thenReturn(Arrays.asList(segment));
         Mockito.when(segment.isActive()).thenReturn(true);
         Mockito.when(segment.getDepartureDate()).thenReturn(departureDay);

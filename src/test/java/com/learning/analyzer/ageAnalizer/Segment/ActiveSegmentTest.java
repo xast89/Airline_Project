@@ -1,9 +1,7 @@
 package com.learning.analyzer.ageAnalizer.Segment;
 
-import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

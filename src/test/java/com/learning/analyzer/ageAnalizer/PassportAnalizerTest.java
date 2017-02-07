@@ -19,8 +19,6 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
 
 
 /**
@@ -48,8 +46,9 @@ public class PassportAnalizerTest {
         //then
         assertEquals(gregorianCalendar, result);
     }
+
     @Test
-    public void checkifPassengerBirthayisNotNull(){
+    public void checkifPassengerBirthayisNotNull() {
         //given
         Calendar gregorianCalendar = new GregorianCalendar(1989, 7, 20);
         Mockito.when(passenger.getPassengerInformation()).thenReturn(passengerInformation());
@@ -57,22 +56,25 @@ public class PassportAnalizerTest {
         //when
         Calendar result = passportAnalizer.getBirthDayFromPassport(passenger);
         //then
-        assertFalse(result==null);
+        assertFalse(result == null);
     }
+
     @Test
-    public void checkifPassengerBirthayisNull(){
+    public void checkifPassengerBirthayisNull() {
         //given
         Mockito.when(passenger.getPassengerInformation()).thenReturn(passengerInformation());
         Mockito.when(birthdayStringConverter.convertPassengerBirthdayToInt(passenger.getPassengerInformation().get(1))).thenReturn(null);
         //when
         Calendar result = passportAnalizer.getBirthDayFromPassport(passenger);
         //then
-        assertTrue(result==null);
+        assertTrue(result == null);
     }
+
     private List<String> passengerInformation() {
         List<String> passengerInformation = Arrays.asList("ADD/IXIS2/8989", "DOC/PAS/DE/123WXY/20JUN89/XPD/20JAN20");
         return passengerInformation;
     }
+
     private List<Segment> segmentsInformation() {
         List<Segment> segments = Arrays.asList(SegmentFactory.oneWay(AirportEnum.BER, AirportEnum.KRK));
         return segments;

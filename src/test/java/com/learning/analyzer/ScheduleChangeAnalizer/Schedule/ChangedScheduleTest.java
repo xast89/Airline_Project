@@ -5,7 +5,7 @@ import com.learning.structure.booking.Booking;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Cyprian on 2017-02-02.
@@ -15,7 +15,7 @@ public class ChangedScheduleTest {
     private ChangedSchedule changedSchedule;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         changedSchedule = new ChangedSchedule();
     }
 

@@ -26,7 +26,6 @@ public class MailSender {
     }
 
 
-
     public void sendEmail(Booking booking) {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";

@@ -19,8 +19,8 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 import static java.util.Calendar.*;
-import static org.mockito.Matchers.any;
 import static org.joda.time.Days.daysBetween;
+import static org.mockito.Matchers.any;
 
 /**
  * Created by Cyprian on 2017-01-19.

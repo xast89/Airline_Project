@@ -1,10 +1,9 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Cyprian on 2017-01-31.
@@ -14,7 +13,7 @@ public class MailSpliterTest {
     private MailSpliter mailSpliter;
 
     @Before
-    public  void  setUp(){
+    public void setUp() {
         mailSpliter = new MailSpliter();
     }
 
@@ -26,29 +25,30 @@ public class MailSpliterTest {
         //when
         String result = mailSpliter.findMailInformatiom("mail/cforemny@gmail.com");
         //then
-        assertEquals("cforemny@gmail.com",result);
+        assertEquals("cforemny@gmail.com", result);
 
     }
 
     @Test
-    public void checkIfPassengerInformationMailIsNotCorrect(){
+    public void checkIfPassengerInformationMailIsNotCorrect() {
 
         // given
 
         //when
         String result = mailSpliter.findMailInformatiom("mail/incorrectMail");
         //then
-        assertEquals(null,result);
+        assertEquals(null, result);
     }
+
     @Test
-    public void checkIfPassengerInnformationMAilIsNull(){
+    public void checkIfPassengerInnformationMAilIsNull() {
 
         //given
 
         //when
         String result = mailSpliter.findMailInformatiom(null);
         //then
-        assertEquals(null,result);
+        assertEquals(null, result);
     }
 
 }

@@ -24,11 +24,10 @@ import static org.junit.Assert.assertNotEquals;
  */
 public class DepartureDayAnalizerTest {
 
-    @InjectMocks
-    private DepartureDayAnalizer departureDayAnalizer;
-
     @Mock
     Passenger passenger;
+    @InjectMocks
+    private DepartureDayAnalizer departureDayAnalizer;
 
     @Test
     public void analyzeDepartureDay() throws Exception {
