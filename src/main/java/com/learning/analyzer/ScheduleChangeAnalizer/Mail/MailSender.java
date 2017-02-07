@@ -20,6 +20,7 @@ public class MailSender {
 
     public MailSender() {
         this.messageCreator = new MessageCreator();
+        //TODO: as wymyslil. Przeciez w Twoim kodzie nie tworzysz danych na których pracujesz. Dane otrzymujesz z zewnątrz.
         this.booking = BookingFactory.createBookingForSCAnalyzer();
     }
 
@@ -27,6 +28,7 @@ public class MailSender {
 //        this.logger = logger;
 //    }
 
+    //TODO: public void sendEmail(Booking booking) ?
     public void sendEmail() {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";
