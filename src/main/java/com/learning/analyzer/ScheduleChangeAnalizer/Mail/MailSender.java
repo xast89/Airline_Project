@@ -1,12 +1,12 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
 
+import com.learning.analyzer.ScheduleChangeAnalizer.Schedule.MessageCreator;
+import com.learning.factory.BookingFactory;
+import com.learning.structure.booking.Booking;
 import org.apache.log4j.Logger;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
@@ -15,8 +15,15 @@ import java.util.Properties;
 public class MailSender {
 
     private Logger logger = Logger.getLogger(MailSender.class);
+    private MessageCreator messageCreator;
+    private Booking booking;
 
-//    public void setLogger(Logger logger) {
+    public MailSender() {
+        this.messageCreator = new MessageCreator();
+        this.booking = BookingFactory.createBookingForSCAnalyzer();
+    }
+
+    //    public void setLogger(Logger logger) {
 //        this.logger = logger;
 //    }
 
@@ -38,15 +45,18 @@ public class MailSender {
         try {
             EmailListAsString emailListAsString = new EmailListAsString();
             String adresses = emailListAsString.createAdresses();
+            String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
+            String messageAboutNewdFlight = messageCreator.createMessageAboutNewdFlight(booking.getPassengerList().get(0).getSegmentList());
+
 
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("cforemny@gmail.com"));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(adresses));
             message.setSubject("Lot odwolany");
-            message.setText("Burza snieżna, nie ma latania");
+            message.setText(messageAboutCanceledFlight + messageAboutNewdFlight);
 
-//            Transport.send(message);
+            Transport.send(message);
 
             logger.info("Wyslano maila");
 
