@@ -32,18 +32,5 @@ public class ScheduleCheckerTest {
 
     }
 
-    @Test
-    public void scheckIfScheduleIsOkay() {
-
-        //given
-        Booking booking = BookingFactory.createBookingForSCAnalyzer();
-        //when
-        boolean result = scheduleChecker.findSegmentInformation(booking.getPassengerList().get(0).getSegmentList());
-        //then
-        assertFalse(result);
-
-
-    }
-
 
 }

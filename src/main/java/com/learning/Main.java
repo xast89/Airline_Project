@@ -17,7 +17,7 @@ public class Main {
 
         Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
         MailSender mailSender = new MailSender();
-//        mailSender.sendEmail();
+        mailSender.sendEmail();
         MessageCreator messageCreator = new MessageCreator();
         String messageAboutCanceledFlight1 = messageCreator.createMessageAboutCanceledFlight(bookingForSCAnalyzer.getPassengerList().get(0).getSegmentList());
         String messageAboutNewFlight = messageCreator.createMessageAboutNewdFlight(bookingForSCAnalyzer.getPassengerList().get(0).getSegmentList());
