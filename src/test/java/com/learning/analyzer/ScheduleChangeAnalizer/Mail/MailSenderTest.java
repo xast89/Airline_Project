@@ -29,7 +29,7 @@ public class MailSenderTest {
         //given
         Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
         //when
-        mailSender.sendEmail(bookingForSCAnalyzer);
+        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
         //then
         Mockito.verify(logger).info("Wyslano maila");
     }

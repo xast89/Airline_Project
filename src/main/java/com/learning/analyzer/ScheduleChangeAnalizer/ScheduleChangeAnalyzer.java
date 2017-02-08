@@ -18,7 +18,7 @@ public class ScheduleChangeAnalyzer implements Analyzer {
     @Override
     public void analyze(Booking booking) {
 
-        mailSender.sendEmail(booking);
+        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(booking);
 
     }
 }

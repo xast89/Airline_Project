@@ -25,17 +25,13 @@ public class MailSender {
 
     }
 
-
     //TODO: Tutaj cos drogi kolega klamie. Ta metodka robi o wiele wiecej niz 'sendEmail'
-    public void sendEmail(Booking booking) {
+    //TODO: Już spoko?
+    public void preapreAndSendEmailToAllPassangersFromCanceledSegment(Booking booking) {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";
-        //TODO: A moze schowac to do jakies prywatnej metodki? Cos w stylu: private Properties createProperies();
-        Properties props = new Properties();
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+
+        Properties props = getProperties();
 
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
@@ -48,24 +44,36 @@ public class MailSender {
             EmailListAsString emailListAsString = new EmailListAsString();
             String adresses = emailListAsString.createAdresses(booking);
             //TODO: Obie metodki na dole moga zwrocic Ci nulla. Czyli ze co? Kazdemu bedziesz wysylac maila z nullowa wartoscia? :>
+            //TODO: Starczy?
             String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
-            String messageAboutNewdFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());
+            String messageAboutNewFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());
 
-
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("cforemny@gmail.com"));
-            message.setRecipients(Message.RecipientType.TO,
-                    InternetAddress.parse(adresses));
-            message.setSubject("Lot odwolany");
-            message.setText(messageAboutCanceledFlight + messageAboutNewdFlight);
+            if (!messageAboutCanceledFlight.equals(null) && !messageAboutNewFlight.equals(null)) {
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("cforemny@gmail.com"));
+                message.setRecipients(Message.RecipientType.TO,
+                        InternetAddress.parse(adresses));
+                message.setSubject("Lot odwolany");
+                message.setText(messageAboutCanceledFlight + messageAboutNewFlight);
 
 //            Transport.send(message);
 
-            logger.info("Wyslano maila");
+                logger.info("Wyslano maila");
+            } else
+                logger.info("Nie wyslano maila, brak danych.");
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private Properties getProperties() {
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        return props;
     }
 
 
