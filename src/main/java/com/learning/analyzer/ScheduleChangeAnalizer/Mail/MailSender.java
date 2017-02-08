@@ -46,7 +46,7 @@ public class MailSender {
 
         try {
             EmailListAsString emailListAsString = new EmailListAsString();
-            String adresses = emailListAsString.createAdresses();
+            String adresses = emailListAsString.createAdresses(booking);
             //TODO: Obie metodki na dole moga zwrocic Ci nulla. Czyli ze co? Kazdemu bedziesz wysylac maila z nullowa wartoscia? :>
             String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
             String messageAboutNewdFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());

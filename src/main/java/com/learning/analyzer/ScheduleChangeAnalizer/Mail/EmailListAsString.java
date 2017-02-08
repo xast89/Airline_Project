@@ -1,6 +1,5 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
-import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 
 import java.util.List;
@@ -10,27 +9,27 @@ import java.util.List;
  */
 public class EmailListAsString {
 
-    private Booking booking;
+
     private EmailList emailList;
-    private List<String> emailAdressesList;
     private StringBuilder list;
 
     public EmailListAsString() {
-        //TODO: No chlopie! Nie tworz sobie danych w srodku analyzera
-        this.booking = BookingFactory.createBookingForSCAnalyzer();
         this.emailList = new EmailList();
-        //TODO: dlaczego tak podstepnie robisz takie machlojki w konstruktorze? Nie lepiej w metodzie?
-        this.emailAdressesList = emailList.createEmailAdressesList(booking);
         this.list = new StringBuilder();
     }
 
-    public String createAdresses() {
+    public String createAdresses(Booking booking) {
 
-        for (String adress : emailAdressesList) {
+        for (String adress : emailAdressesList(booking)) {
             list.append(adress);
             list.append(", ");
         }
         String stringAdressesList = list.toString();
         return stringAdressesList;
+    }
+
+    private List<String> emailAdressesList(Booking booking) {
+        return emailList.createEmailAdressesList(booking);
+
     }
 }

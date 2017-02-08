@@ -1,5 +1,7 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
+import com.learning.factory.BookingFactory;
+import com.learning.structure.booking.Booking;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,9 +25,9 @@ public class EmailListAsStringTest {
     public void createAdressesAsOneString() {
 
         //given
-
+        Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
         //when
-        String result = emailListAsString.createAdresses();
+        String result = emailListAsString.createAdresses(bookingForSCAnalyzer);
         //then
         Assert.assertEquals("cforemny@gmail.com, pawel.gondek@gmail.com , cforemny@gmail.com, ", result);
     }
