@@ -24,9 +24,6 @@ public class MailSender {
         this.messageCreator = new MessageCreator();
 
     }
-
-    //TODO: Tutaj cos drogi kolega klamie. Ta metodka robi o wiele wiecej niz 'sendEmail'
-    //TODO: Już spoko?
     public void preapreAndSendEmailToAllPassangersFromCanceledSegment(Booking booking) {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";
@@ -43,12 +40,11 @@ public class MailSender {
         try {
             EmailListAsString emailListAsString = new EmailListAsString();
             String adresses = emailListAsString.createAdresses(booking);
-            //TODO: Obie metodki na dole moga zwrocic Ci nulla. Czyli ze co? Kazdemu bedziesz wysylac maila z nullowa wartoscia? :>
-            //TODO: Starczy?
+
             String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
             String messageAboutNewFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());
 
-            if (!messageAboutCanceledFlight.equals(null) && !messageAboutNewFlight.equals(null)) {
+            if (messageAboutCanceledFlight!=null && messageAboutNewFlight!=null) {
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("cforemny@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO,

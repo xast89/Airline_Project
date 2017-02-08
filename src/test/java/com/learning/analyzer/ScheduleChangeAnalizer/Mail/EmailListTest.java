@@ -30,7 +30,6 @@ public class EmailListTest {
         Booking booking = BookingFactory.createBookingForSCAnalyzer();
         //when
         List<String> result = emailList.createEmailAdressesList(booking);
-
         //then
         assertNotNull(result);
     }
@@ -46,6 +45,7 @@ public class EmailListTest {
         //then
         assertEquals(Arrays.asList("cforemny@gmail.com", "pawel.gondek@gmail.com ", "cforemny@gmail.com"), result);
     }
+
 
 
 }

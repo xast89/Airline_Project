@@ -32,8 +32,6 @@ public class MessageCreator {
             }
         }
         return null;
-
-
     }
 
     public String createMessageAboutCanceledFlight(List<Segment> segmentList) {
