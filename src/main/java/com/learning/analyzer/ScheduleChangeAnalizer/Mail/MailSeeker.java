@@ -20,7 +20,7 @@ public class MailSeeker {
     }
 
     public String findMail(Passenger passenger) {
-        if (changedSchedule.findSegmentInformation(passenger.getSegmentList())) {
+        if (changedSchedule.isScheduleChangeSegment(passenger.getSegmentList())) {
             for (String passengerInformation : passenger.getPassengerInformation()) {
                 if (passengerInformation.contains("mail"))
                     return mailSpliter.findMailInformatiom(passengerInformation);

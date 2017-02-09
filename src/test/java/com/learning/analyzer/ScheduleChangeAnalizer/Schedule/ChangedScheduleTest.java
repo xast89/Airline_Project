@@ -25,7 +25,7 @@ public class ChangedScheduleTest {
         //given
         Booking booking = BookingFactory.createBookingForSCAnalyzer();
         //when
-        boolean result = changedSchedule.findSegmentInformation(booking.getPassengerList().get(0).getSegmentList());
+        boolean result = changedSchedule.isScheduleChangeSegment(booking.getPassengerList().get(0).getSegmentList());
         //then
         assertTrue(result);
 

@@ -16,7 +16,7 @@ public class MailSender {
 
     private Logger logger = Logger.getLogger(MailSender.class);
 
-    public void preapreAndSendEmailToAllPassangersFromCanceledSegment(Wrapper wrapper) {
+    public void sendEmailToAllPassangersFromCanceledSegment(Wrapper wrapper) {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";
 
@@ -33,7 +33,7 @@ public class MailSender {
 
             if (wrapper.getTresclistu() != null) {
                 Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress("cforemny@gmail.com"));
+                message.setFrom(new InternetAddress(username));
                 message.setRecipients(Message.RecipientType.TO,
                         InternetAddress.parse(wrapper.getAdresat()));
                 message.setSubject(wrapper.getTytul());

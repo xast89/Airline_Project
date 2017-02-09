@@ -36,7 +36,7 @@ public class MailSenderTest {
         Mockito.when(wrapper.getAdresat()).thenReturn("cforemny@gmail.com");
         Mockito.when(wrapper.getTytul()).thenReturn("Przykaldowy tytul");
         //when
-        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(wrapper);
+        mailSender.sendEmailToAllPassangersFromCanceledSegment(wrapper);
         //then
         Mockito.verify(logger).info("Wyslano maila");
     }
@@ -47,7 +47,7 @@ public class MailSenderTest {
         Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
         Mockito.when(przykladowyPrzygotowywacz.przygotujPaczke(bookingForSCAnalyzer)).thenReturn(new Wrapper("dupa", "dupa", "dupa"));
         //when
-        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(wrapper);
+        mailSender.sendEmailToAllPassangersFromCanceledSegment(wrapper);
         //then
         Mockito.verify(logger).info("Nie wyslano maila, brak danych.");
 
@@ -58,7 +58,7 @@ public class MailSenderTest {
         //given
 
         //when
-        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(wrapper);
+        mailSender.sendEmailToAllPassangersFromCanceledSegment(wrapper);
         //then
         Mockito.verify(logger).info("Nie wyslano maila, brak danych.");
 

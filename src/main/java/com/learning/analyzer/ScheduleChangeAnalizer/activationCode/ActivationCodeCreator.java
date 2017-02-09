@@ -25,7 +25,7 @@ public class ActivationCodeCreator {
     public String createActivationCode(List<Passenger> passengerList) {
 
         for (Passenger passenger : passengerList) {
-            if (changedSchedule.findSegmentInformation(passenger.getSegmentList())) {
+            if (changedSchedule.isScheduleChangeSegment(passenger.getSegmentList())) {
                 char firstLetterOfPassengersName = nameFirstLetter.getFirstletterOfPassengersName(passenger);
                 activationCode.append(firstLetterOfPassengersName);
 

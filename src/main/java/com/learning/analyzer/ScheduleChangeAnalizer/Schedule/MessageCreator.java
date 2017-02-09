@@ -37,7 +37,7 @@ public class MessageCreator {
     public String createMessageAboutCanceledFlight(List<Segment> segmentList) {
 
         for (Segment segment : segmentList) {
-            if (changedSchedule.findSegmentInformation(segmentList)) {
+            if (changedSchedule.isScheduleChangeSegment(segmentList)) {
                 String canceledFlight = "Odwoloano lot numer " + segment.getFlightNumber() + " z " +
                         segment.getDepartureAirport() + " do " + segment.getArrivalAirport() + " z dnia " + segment.getDepartureDate().get(MONTH) + "." +
                         segment.getDepartureDate().get(DAY_OF_MONTH) + ". W jego miejsce można będzie skorzystać z lotu zastępczego:";

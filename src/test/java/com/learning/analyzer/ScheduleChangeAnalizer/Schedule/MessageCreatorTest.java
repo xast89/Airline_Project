@@ -49,7 +49,7 @@ public class MessageCreatorTest {
     public void createMessageAboutNewFlightWhenScheduleIsNotOk() {
         //given
         segmentList = createSegmentList();
-        Mockito.when(changedSchedule.findSegmentInformation(segmentList)).thenReturn(false);
+        Mockito.when(changedSchedule.isScheduleChangeSegment(segmentList)).thenReturn(false);
         //when
         String result = messageCreator.createMessageAboutNewFlight(segmentList);
         //then

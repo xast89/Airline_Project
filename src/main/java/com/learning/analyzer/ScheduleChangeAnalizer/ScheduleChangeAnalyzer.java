@@ -26,20 +26,26 @@ public class ScheduleChangeAnalyzer implements Analyzer {
     @Override
     public void analyze(Booking booking) {
         if (booking != null) {
-            for (Passenger passenger : booking.getPassengerList()) {
-                if (changedSchedule.findSegmentInformation(passenger.getSegmentList())) {
-                    Wrapper wrapper = przykladowyPrzygotowywacz.przygotujPaczke(booking);
-
-                    mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(wrapper);
-                    logger.info("Poszlo");
-                    return;
-                } else
-                    logger.info("Nie znaleziono zadnych anulowanych lotow.");
+            if (isScheduleChange(booking)) {
+                mailSender.sendEmailToAllPassangersFromCanceledSegment(przykladowyPrzygotowywacz.przygotujPaczke(booking));
+                logger.info("Poszlo");
+            } else {
+                logger.info("Nie znaleziono zadnych anulowanych lotow.");
             }
+
 
         } else {
             logger.info("Nullowy booking! Nieakceptowalne!");
         }
+    }
+
+    private boolean isScheduleChange(Booking booking) {
+        for (Passenger passenger : booking.getPassengerList()) {
+            if (changedSchedule.isScheduleChangeSegment(passenger.getSegmentList())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

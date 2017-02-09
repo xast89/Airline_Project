@@ -11,7 +11,7 @@ public class ChangedSchedule {
 
     public static final String SCHEDULE_CHANGE = "Schedule Change";
 
-    public boolean findSegmentInformation(List<Segment> segmentList) {
+    public boolean isScheduleChangeSegment(List<Segment> segmentList) {
         for (Segment segment : segmentList) {
 
             for (String segmentInformation : segment.getSegmentInformation()) {
