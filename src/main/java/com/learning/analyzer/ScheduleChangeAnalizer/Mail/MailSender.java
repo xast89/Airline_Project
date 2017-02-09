@@ -1,12 +1,11 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
-
-import com.learning.analyzer.ScheduleChangeAnalizer.Schedule.MessageCreator;
-import com.learning.analyzer.ScheduleChangeAnalizer.activationCode.ActivationCodeCreator;
-import com.learning.structure.booking.Booking;
+import com.learning.analyzer.ScheduleChangeAnalizer.Wrapper;
 import org.apache.log4j.Logger;
-
-import javax.mail.*;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
@@ -15,17 +14,8 @@ import java.util.Properties;
 public class MailSender {
 
     private Logger logger = Logger.getLogger(MailSender.class);
-    private MessageCreator messageCreator;
-    private ActivationCodeCreator activationCodeCreator;
 
-
-    public MailSender() {
-        this.messageCreator = new MessageCreator();
-        this.activationCodeCreator = new ActivationCodeCreator();
-
-    }
-
-    public void preapreAndSendEmailToAllPassangersFromCanceledSegment(Booking booking) {
+    public void preapreAndSendEmailToAllPassangersFromCanceledSegment(Wrapper wrapper) {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";
 
@@ -39,20 +29,14 @@ public class MailSender {
                 });
 
         try {
-            EmailListAsString emailListAsString = new EmailListAsString();
-            String adresses = emailListAsString.createAdresses(booking);
 
-            String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
-            String messageAboutNewFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());
-            String activationCode = activationCodeCreator.createActivationCode(booking.getPassengerList());
-
-            if (messageAboutCanceledFlight != null && messageAboutNewFlight != null) {
+            if (wrapper.getTresclistu() != null) {
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("cforemny@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO,
-                        InternetAddress.parse(adresses));
-                message.setSubject("Lot odwolany");
-                message.setText(messageAboutCanceledFlight + messageAboutNewFlight + ". Kod aktywacyjny nowego lotu to: " + activationCode);
+                        InternetAddress.parse(wrapper.getAdresat()));
+                message.setSubject(wrapper.getTytul());
+                message.setText(wrapper.getTresclistu());
 
 //            Transport.send(message);
 

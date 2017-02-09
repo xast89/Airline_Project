@@ -11,7 +11,6 @@ import java.util.List;
 public class ActivationCodeCreator {
 
 
-
     private ChangedSchedule changedSchedule;
     private NameFirstLetter nameFirstLetter;
     private StringBuilder activationCode;
@@ -23,10 +22,10 @@ public class ActivationCodeCreator {
         this.activationCode = new StringBuilder();
     }
 
-    public String createActivationCode(List <Passenger> passengerList){
+    public String createActivationCode(List<Passenger> passengerList) {
 
         for (Passenger passenger : passengerList) {
-            if(changedSchedule.findSegmentInformation(passenger.getSegmentList())){
+            if (changedSchedule.findSegmentInformation(passenger.getSegmentList())) {
                 char firstLetterOfPassengersName = nameFirstLetter.getFirstletterOfPassengersName(passenger);
                 activationCode.append(firstLetterOfPassengersName);
 

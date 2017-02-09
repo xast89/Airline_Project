@@ -44,7 +44,7 @@ public class MailSenderTest {
         Mockito.when( messageCreator.createMessageAboutCanceledFlight(bookingForSCAnalyzer.getPassengerList().get(0).getSegmentList())).thenReturn("Wiadomosc");
         Mockito.when( messageCreator.createMessageAboutNewFlight(bookingForSCAnalyzer.getPassengerList().get(0).getSegmentList())).thenReturn("Wiadomosc2");
         //when
-        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
+//        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
         //then
         Mockito.verify(logger).info("Wyslano maila");
     }
@@ -56,7 +56,7 @@ public class MailSenderTest {
         segmentList = createSegmentList();
         Mockito.when(messageCreator.createMessageAboutCanceledFlight(segmentList)).thenReturn(null);
         //when
-        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
+//        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
         //then
         Mockito.verify(logger).info("Nie wyslano maila, brak danych.");
 
@@ -69,7 +69,7 @@ public class MailSenderTest {
         segmentList = createSegmentList();
         Mockito.when(messageCreator.createMessageAboutNewFlight(segmentList)).thenReturn(null);
         //when
-        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
+//        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
         //then
         Mockito.verify(logger).info("Nie wyslano maila, brak danych.");
 
