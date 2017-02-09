@@ -1,8 +1,7 @@
-package com.learning.analyzer.activationCode;
+package com.learning.analyzer.ScheduleChangeAnalizer.activationCode;
 
 import com.learning.analyzer.ScheduleChangeAnalizer.Schedule.ChangedSchedule;
 import com.learning.structure.booking.Passenger;
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.util.List;
 
@@ -15,21 +14,26 @@ public class ActivationCodeCreator {
 
     private ChangedSchedule changedSchedule;
     private NameFirstLetter nameFirstLetter;
+    private StringBuilder activationCode;
+
 
     public ActivationCodeCreator() {
         this.changedSchedule = new ChangedSchedule();
         this.nameFirstLetter = new NameFirstLetter();
+        this.activationCode = new StringBuilder();
     }
 
-    public void createActivationCode(List <Passenger> passengerList){
+    public String createActivationCode(List <Passenger> passengerList){
 
         for (Passenger passenger : passengerList) {
             if(changedSchedule.findSegmentInformation(passenger.getSegmentList())){
-                char firstletterOfPassengersName = nameFirstLetter.getFirstletterOfPassengersName(passenger);
-                System.out.println(firstletterOfPassengersName);
+                char firstLetterOfPassengersName = nameFirstLetter.getFirstletterOfPassengersName(passenger);
+                activationCode.append(firstLetterOfPassengersName);
+
             }
 
         }
-
+        String activationCodeAsString = activationCode.toString();
+        return activationCodeAsString;
     }
 }
