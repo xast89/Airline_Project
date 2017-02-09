@@ -20,13 +20,13 @@ public class ScheduleChangeAnalyzer implements Analyzer {
     @Override
     public void analyze(Booking booking) {
 
-        if(booking!=null){
+        if (booking != null) {
             mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(booking);
             logger.info("Poszlo");
 
-        }else{
+        } else {
             logger.info("Nullowy booking! Nieakceptowalne!");
-        return;
+            return;
         }
 
 

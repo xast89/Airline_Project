@@ -1,6 +1,7 @@
 package com.learning;
 
 import com.learning.analyzer.ScheduleChangeAnalizer.ScheduleChangeAnalyzer;
+import com.learning.analyzer.activationCode.ActivationCodeCreator;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 
@@ -17,6 +18,9 @@ public class Main {
         Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
         ScheduleChangeAnalyzer scheduleChangeAnalyzer = new ScheduleChangeAnalyzer();
         scheduleChangeAnalyzer.analyze(bookingForSCAnalyzer);
+
+        ActivationCodeCreator activationCodeCreator = new ActivationCodeCreator();
+        activationCodeCreator.createActivationCode(bookingForSCAnalyzer.getPassengerList());
 
 
     }

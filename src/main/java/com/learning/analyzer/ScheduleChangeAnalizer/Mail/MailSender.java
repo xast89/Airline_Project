@@ -24,6 +24,7 @@ public class MailSender {
         this.messageCreator = new MessageCreator();
 
     }
+
     public void preapreAndSendEmailToAllPassangersFromCanceledSegment(Booking booking) {
         final String username = "cforemny@gmail.com";
         final String password = "foremny22a";
@@ -44,7 +45,7 @@ public class MailSender {
             String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
             String messageAboutNewFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());
 
-            if (messageAboutCanceledFlight!=null && messageAboutNewFlight!=null) {
+            if (messageAboutCanceledFlight != null && messageAboutNewFlight != null) {
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("cforemny@gmail.com"));
                 message.setRecipients(Message.RecipientType.TO,
