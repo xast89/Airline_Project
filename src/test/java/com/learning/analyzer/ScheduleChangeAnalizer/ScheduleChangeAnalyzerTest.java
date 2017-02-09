@@ -36,6 +36,7 @@ public class ScheduleChangeAnalyzerTest {
         Mockito.verify(logger).info("Nullowy booking! Nieakceptowalne!");
 
     }
+
     @Test
     public void analyzeWhenBookinsIsNotNull() {
 

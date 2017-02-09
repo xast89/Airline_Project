@@ -2,6 +2,7 @@ package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
 import com.learning.analyzer.ScheduleChangeAnalizer.Wrapper;
 import org.apache.log4j.Logger;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;

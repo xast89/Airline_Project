@@ -18,9 +18,9 @@ public class PrzykladowyPrzygotowywacz {
         this.mailCreator = new MailCreator();
     }
 
-    public  Wrapper przygotujPaczke(Booking booking){
+    public Wrapper przygotujPaczke(Booking booking) {
 
-        return new Wrapper(emailListAsString.createAdresses(booking),"Tytuł wiadomości", mailCreator.preapreMessageToSend(booking));
+        return new Wrapper(emailListAsString.createAdresses(booking), "Tytuł wiadomości", mailCreator.preapreMessageToSend(booking));
 
     }
 }

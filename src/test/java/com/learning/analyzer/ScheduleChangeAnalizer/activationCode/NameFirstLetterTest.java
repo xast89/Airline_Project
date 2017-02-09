@@ -16,12 +16,10 @@ import static org.junit.Assert.assertEquals;
  */
 public class NameFirstLetterTest {
 
-    @InjectMocks
-    private NameFirstLetter nameFirstLetter;
-
     private static final char firstLetter = 'B';
     private static final char firstLetterNull = 0;
-
+    @InjectMocks
+    private NameFirstLetter nameFirstLetter;
     @Mock
     private Passenger passenger;
 

@@ -39,7 +39,7 @@ public class ScheduleChangeAnalyzer implements Analyzer {
 
         } else {
             logger.info("Nullowy booking! Nieakceptowalne!");
-         }
+        }
     }
 }
 

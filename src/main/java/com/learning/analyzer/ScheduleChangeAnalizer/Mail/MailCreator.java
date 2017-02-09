@@ -16,7 +16,8 @@ public class MailCreator {
         this.activationCodeCreator = new ActivationCodeCreator();
 
     }
-    public String preapreMessageToSend(Booking booking){
+
+    public String preapreMessageToSend(Booking booking) {
         String messageAboutCanceledFlight = messageCreator.createMessageAboutCanceledFlight(booking.getPassengerList().get(0).getSegmentList());
         String messageAboutNewFlight = messageCreator.createMessageAboutNewFlight(booking.getPassengerList().get(0).getSegmentList());
         String activationCode = activationCodeCreator.createActivationCode(booking.getPassengerList());
