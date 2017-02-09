@@ -1,6 +1,8 @@
 package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 
+import com.learning.analyzer.ScheduleChangeAnalizer.PrzykladowyPrzygotowywacz;
 import com.learning.analyzer.ScheduleChangeAnalizer.Schedule.MessageCreator;
+import com.learning.analyzer.ScheduleChangeAnalizer.Wrapper;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Segment;
@@ -28,7 +30,10 @@ public class MailSenderTest {
     @InjectMocks
     private MailSender mailSender;
     public static final String SCHEDULE_CHANGE = "Schedule Change";
-
+    @Mock
+    private Wrapper wrapper;
+    @Mock
+    private PrzykladowyPrzygotowywacz przykladowyPrzygotowywacz;
     @Mock
     private Logger logger;
     @Mock
@@ -41,10 +46,11 @@ public class MailSenderTest {
 
         //given
         Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
-        Mockito.when( messageCreator.createMessageAboutCanceledFlight(bookingForSCAnalyzer.getPassengerList().get(0).getSegmentList())).thenReturn("Wiadomosc");
-        Mockito.when( messageCreator.createMessageAboutNewFlight(bookingForSCAnalyzer.getPassengerList().get(0).getSegmentList())).thenReturn("Wiadomosc2");
+        Mockito.when(wrapper.getTresclistu()).thenReturn("przykładowa tresc nie nullowa");
+        Mockito.when(wrapper.getAdresat()).thenReturn("cforemny@gmail.com");
+        Mockito.when(wrapper.getTytul()).thenReturn("Przykaldowy tytul");
         //when
-//        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
+        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(wrapper);
         //then
         Mockito.verify(logger).info("Wyslano maila");
     }
@@ -53,23 +59,20 @@ public class MailSenderTest {
     public void sendEmailWhenMessageAboutCanceledSegmentIsNull() {
         //given
         Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
-        segmentList = createSegmentList();
-        Mockito.when(messageCreator.createMessageAboutCanceledFlight(segmentList)).thenReturn(null);
+        Mockito.when(przykladowyPrzygotowywacz.przygotujPaczke(bookingForSCAnalyzer)).thenReturn(new Wrapper("dupa","dupa","dupa"));
         //when
-//        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
+        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(wrapper);
         //then
         Mockito.verify(logger).info("Nie wyslano maila, brak danych.");
 
     }
 
     @Test
-    public void sendEmailWhenMessageAboutNewSegmentIsNull() {
+    public void sendEmailWhenAnyMessageAboutNewSegmentIsNull() {
         //given
-        Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
-        segmentList = createSegmentList();
-        Mockito.when(messageCreator.createMessageAboutNewFlight(segmentList)).thenReturn(null);
+
         //when
-//        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(bookingForSCAnalyzer);
+        mailSender.preapreAndSendEmailToAllPassangersFromCanceledSegment(wrapper);
         //then
         Mockito.verify(logger).info("Nie wyslano maila, brak danych.");
 
