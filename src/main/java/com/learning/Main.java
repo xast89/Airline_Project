@@ -11,12 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-// TODO: Poczytac o Singletonie
 
+        Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
 
-        Booking bookingForSCAnalyzer = BookingFactory.createBookingForSCAnalyzer();
-        ScheduleChangeAnalyzer scheduleChangeAnalyzer = new ScheduleChangeAnalyzer();
-        scheduleChangeAnalyzer.analyze(bookingForSCAnalyzer);
 
 
     }
