@@ -54,6 +54,10 @@ public class Passenger {
         return resultMap;
     }
 
+    public void setResultMap(Map<String, Object> resultMap) {
+        this.resultMap = resultMap;
+    }
+
     public Ticket getTicket() {
         return ticket;
     }

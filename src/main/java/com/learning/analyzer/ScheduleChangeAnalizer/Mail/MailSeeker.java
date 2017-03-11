@@ -3,7 +3,7 @@ package com.learning.analyzer.ScheduleChangeAnalizer.Mail;
 import com.learning.analyzer.ScheduleChangeAnalizer.Schedule.ChangedSchedule;
 import com.learning.structure.booking.Passenger;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+//import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 /**
  * Created by Cyprian on 2017-01-31.
@@ -26,7 +26,7 @@ public class MailSeeker {
                     return mailSpliter.findMailInformatiom(passengerInformation);
             }
         }
-        LOGGER.info("Bledny email");
+        //LOGGER.info("Bledny email");
         return null;
     }
 
