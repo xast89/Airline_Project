@@ -17,8 +17,12 @@ public class PassengerAgeAnalizer implements Analyzer {
 
     private Date getPassengerBirthDate(Passenger p){
         PassengerInfo passengerInfo;
+
+        //TODO: to powinno byc w konstruktorze
         PassengerInfoAnalyzer passengerInfoAnalyzer = new PassengerInfoAnalyzer();
 
+        //TODO: a skad pewsnosc, ze potrzebna Ci informacja bedzie w drugim elemencie listy? (get(1)) ?
+        //TODO: A nie na przyklad w 10 ?
         passengerInfoAnalyzer.analyze(p.getPassengerInformation().get(1));
         passengerInfo = passengerInfoAnalyzer.getPassengerInfo();
 
@@ -28,14 +32,20 @@ public class PassengerAgeAnalizer implements Analyzer {
 
     @Override
     public void analyze(Booking booking) {
+        //TODO: co to jest p?
         for (Passenger p: booking.getPassengerList()){
             int age;
+            //TODO: literówka
             int departueYear;
             int birthdayYear;
 
+            //TODO: literówka
             Calendar departueCalendar = Calendar.getInstance();
             Calendar birthdayCalendar = Calendar.getInstance();
 
+            // To raczej nie tutaj. W konstruktorze powinno byc.
+            // Bo jak przerobimy to na projekt Springowy to Spring wstrzykuje zależności właśnie
+            // między innymi przez konstruktory
             SegmentAnalyzer segmentAnalyzer = new SegmentAnalyzer();
 
             departueCalendar = segmentAnalyzer.getNearestActiveSegment(p.getSegmentList()).getDepartureDate();

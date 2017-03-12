@@ -14,6 +14,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Ogólne uwagi do których będę się odwoływać w kodzie:
+        // 1)wszędzie używamy modyfikatorów dostępu
+        // 2) metody powinny być małe / powinny robić jedną funkcjonalność
+        // 3) nazwa metody powinna wskazywać co ona robi
+        // 4) nazwy zmiennych powinny 'same siebie opisywać'
+
 
         Booking oneAdultOneWay = BookingFactory.createOneAdultOneWay();
 
