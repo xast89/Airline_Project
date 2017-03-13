@@ -1,4 +1,5 @@
 #Ignorowanie plikow InteliJ'a
 .idea/
 *.iml
-target
+target/
+javalog4j-application.log

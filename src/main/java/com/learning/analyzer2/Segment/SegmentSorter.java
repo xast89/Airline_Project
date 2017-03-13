@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class SegmentSorter {
 
-    //TODO: to jest mega fajne rozwiazanie.
     public void sortBy(List<Segment> segments, SegmentSortType type){
         switch (type) {
             case DEPARTURE_DATE:

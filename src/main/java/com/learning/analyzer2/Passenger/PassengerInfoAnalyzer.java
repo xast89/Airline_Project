@@ -5,34 +5,35 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+import org.apache.log4j.Logger;
+
+
 /**
  * Created by fd on 02.03.2017.
  */
-public class PassengerInfoAnalyzer {
-    // TODO: dostep pakietowy?
-    PassengerInfo passengerInfo = new PassengerInfo();
+class PassengerInfoAnalyzer {
+    private PassengerInfo passengerInfo = new PassengerInfo();
+    private static final String splitRegex = "/";
+    private static final String datePattern = "ddMMMyy";
+    private static Logger log = Logger.getLogger(PassengerInfoAnalyzer.class.getName());
 
-    public PassengerInfo getPassengerInfo() {
+    PassengerInfo getPassengerInfo() {
         return passengerInfo;
     }
 
-    //TODO: nazwa metody w ogolnie nic nie mowi o tym, co ona robi
-    public void analyze(String passengerInformation){
+    void createInfo(String passengerInformation){
         try{
-            //TODO: w ogole po co zapisywac wszystkie info z tego Stringa do obiketu? Skoro tylko data Ci potrzebna?
-
-            //TODO: regexy i patterny wrzuc w prywatne pole finalne
-            String[] data = passengerInformation.split("/");
+            String[] data = passengerInformation.split(splitRegex);
             passengerInfo.setDataSource(data[0]);
             passengerInfo.setDataSourceType(data[1]);
             passengerInfo.setCountry(data[2]);
             passengerInfo.setDataSourceIdNr(data[3]);
-            DateFormat dateFormat = new SimpleDateFormat("ddMMMyy", Locale.ENGLISH);
+            DateFormat dateFormat = new SimpleDateFormat(datePattern, Locale.ENGLISH);
             passengerInfo.setDirthdayDate(dateFormat.parse(data[4]));
             passengerInfo.setRandomData(data[5]);
             passengerInfo.setExpirationDate(dateFormat.parse(data[6]));
         }catch(ParseException e){
-            // TODO: dobrze by byly cos zalogowac - jakies info na przyklad czemu sie wywalilo
+            log.error("Error while creating object containing info about passenger.");
             e.printStackTrace();
         }
     }
