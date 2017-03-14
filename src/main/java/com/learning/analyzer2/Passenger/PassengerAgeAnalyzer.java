@@ -25,6 +25,7 @@ public class PassengerAgeAnalyzer implements Analyzer {
         //TODO: a skad pewsnosc, ze potrzebna Ci informacja bedzie w drugim elemencie listy? (get(1)) ?
         //TODO: A nie na przyklad w 10 ?
         //Odp: Bo takie zalozenia projektu :)
+        //TODO: na chwile obecną jest to drugi element. Ale tego nie jestes pewny. To musisz zmienić
 
         passengerInfoAnalyzer.createInfo(passenger.getPassengerInformation().get(1));
         passengerInfo = passengerInfoAnalyzer.getPassengerInfo();
@@ -45,15 +46,23 @@ public class PassengerAgeAnalyzer implements Analyzer {
             Calendar departureCalendar = Calendar.getInstance();
             Calendar birthdayCalendar = Calendar.getInstance();
 
+            //TODO: nie wiem czy jest sens wyciagac to do osobnej zmiennej. Bo ten getter tj getSegmentList()
+            // jest ogolnie API tej klaski
             List<Segment> segmentList = passenger.getSegmentList();
             segmentSorter.sortBy(segmentList, SegmentSortType.DEPARTURE_DATE);
 
+            //TODO: nie lepiej zamiast 'tempSegment' napisac 'nearestActiveSegment' ? Wtedy wiadomo jest
+            // co ta zmienna przechowuje. W sensie jest 'samoopisujaca sie'
             tempSegment = segmentAnalyzer.getNearestActiveSegment(segmentList);
 
             if(tempSegment == null){
 
+                // TODO: tu by sie przydalo cos zalogowac - ze nie ma segmentu albo cus
                 return;
             }
+
+            //TODO: ogolnie obliczanie wieku mozna wywalic do osobnej klaski (albo klasek?)
+            // Wtedy metoda 'analyze' skroci sie do 5 linijek
 
             departureCalendar = tempSegment.getDepartureDate();
             birthdayCalendar.setTime(getPassengerBirthDate(passenger));
@@ -62,6 +71,7 @@ public class PassengerAgeAnalyzer implements Analyzer {
             birthdayYear = birthdayCalendar.get(Calendar.YEAR);
 
             age = departureYear - birthdayYear;
+            //TODO: static import dla Calendar
             if (departureCalendar.get(Calendar.MONTH) > birthdayCalendar.get(Calendar.MONTH) ||
                     (departureCalendar.get(Calendar.MONTH) == birthdayCalendar.get(Calendar.MONTH) &&
                             departureCalendar.get(Calendar.DATE) > birthdayCalendar.get(Calendar.DATE))) {
