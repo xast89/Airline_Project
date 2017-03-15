@@ -1,15 +1,18 @@
 package com.learning.analyzer2.Passenger;
 
 import com.learning.analyzer2.Analyzer;
+import com.learning.analyzer2.Date.DateAnalyzer;
+import com.learning.analyzer2.Date.DifferenceDateType;
 import com.learning.analyzer2.Segment.SegmentAnalyzer;
 import com.learning.analyzer2.Segment.SegmentSortType;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
 import com.learning.structure.booking.Segment;
 import com.learning.analyzer2.Segment.SegmentSorter;
-
+import org.apache.log4j.Logger;
 import java.util.*;
 
+import static java.util.Calendar.*;
 
 /**
  * Created by fd on 02.03.2017.
@@ -18,6 +21,8 @@ public class PassengerAgeAnalyzer implements Analyzer {
     private PassengerInfoAnalyzer passengerInfoAnalyzer = new PassengerInfoAnalyzer();
     private SegmentAnalyzer segmentAnalyzer = new SegmentAnalyzer();
     private SegmentSorter segmentSorter = new SegmentSorter();
+    private DateAnalyzer dateAnalyzer = new DateAnalyzer();
+    private static Logger log = Logger.getLogger(PassengerAgeAnalyzer.class.getName());
 
     private Date getPassengerBirthDate(Passenger passenger){
         PassengerInfo passengerInfo;
@@ -38,48 +43,28 @@ public class PassengerAgeAnalyzer implements Analyzer {
     public void analyze(Booking booking) {
 
         for (Passenger passenger: booking.getPassengerList()){
-            int age;
-            int departureYear;
-            int birthdayYear;
-            Segment tempSegment;
+            int passengerAge;
+            Segment nearestActiveSegment;
 
             Calendar departureCalendar = Calendar.getInstance();
             Calendar birthdayCalendar = Calendar.getInstance();
 
-            //TODO: nie wiem czy jest sens wyciagac to do osobnej zmiennej. Bo ten getter tj getSegmentList()
-            // jest ogolnie API tej klaski
-            List<Segment> segmentList = passenger.getSegmentList();
-            segmentSorter.sortBy(segmentList, SegmentSortType.DEPARTURE_DATE);
+            segmentSorter.sortBy(passenger.getSegmentList(), SegmentSortType.DEPARTURE_DATE);
 
-            //TODO: nie lepiej zamiast 'tempSegment' napisac 'nearestActiveSegment' ? Wtedy wiadomo jest
-            // co ta zmienna przechowuje. W sensie jest 'samoopisujaca sie'
-            tempSegment = segmentAnalyzer.getNearestActiveSegment(segmentList);
+            nearestActiveSegment = segmentAnalyzer.getNearestActiveSegment(passenger.getSegmentList());
 
-            if(tempSegment == null){
-
-                // TODO: tu by sie przydalo cos zalogowac - ze nie ma segmentu albo cus
+            if(nearestActiveSegment == null){
+                log.error("The passenger dosen't have any segment.");
                 return;
             }
 
-            //TODO: ogolnie obliczanie wieku mozna wywalic do osobnej klaski (albo klasek?)
-            // Wtedy metoda 'analyze' skroci sie do 5 linijek
-
-            departureCalendar = tempSegment.getDepartureDate();
+            departureCalendar = nearestActiveSegment.getDepartureDate();
             birthdayCalendar.setTime(getPassengerBirthDate(passenger));
 
-            departureYear = departureCalendar.get(Calendar.YEAR);
-            birthdayYear = birthdayCalendar.get(Calendar.YEAR);
-
-            age = departureYear - birthdayYear;
-            //TODO: static import dla Calendar
-            if (departureCalendar.get(Calendar.MONTH) > birthdayCalendar.get(Calendar.MONTH) ||
-                    (departureCalendar.get(Calendar.MONTH) == birthdayCalendar.get(Calendar.MONTH) &&
-                            departureCalendar.get(Calendar.DATE) > birthdayCalendar.get(Calendar.DATE))) {
-                age--;
-            }
+            passengerAge = dateAnalyzer.getDifferenceBetween(departureCalendar,birthdayCalendar, DifferenceDateType.YEARS);
 
             Map<String,Object> map = new HashMap<>();
-            map.put("AgeAtDepartueDate",age);
+            map.put("AgeAtDepartueDate",passengerAge);
             passenger.setResultMap(map);
         }
 

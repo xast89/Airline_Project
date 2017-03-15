@@ -4,7 +4,6 @@ import com.learning.analyzer2.Passenger.PassengerAgeAnalyzer;
 import com.learning.factory.BookingFactory;
 import com.learning.structure.booking.Booking;
 import com.learning.structure.booking.Passenger;
-import org.apache.log4j.Logger;
 
 import java.util.List;
 
